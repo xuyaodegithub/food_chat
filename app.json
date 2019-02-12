@@ -6,7 +6,8 @@
     "pages/shop-detail/shopDetail",
     "pages/business-map/business-map",
     "pages/cat-chart/cat-chart",
-    "pages/area-detail/area-detail"
+    "pages/area-detail/area-detail",
+    "pages/cat-detail/cat-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

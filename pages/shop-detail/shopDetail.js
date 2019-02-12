@@ -1,5 +1,5 @@
 import * as echarts from '../../ec-canvas/echarts';
-
+var config = require('../../config.js');
 const app = getApp();
 
 function initChart(canvas, width, height) {
@@ -71,14 +71,15 @@ Page({
   data: {
     ec: {
       onInit: initChart
-    }
+    },
+    shopInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getDetail(options.shopId)
   },
 
   /**
@@ -128,5 +129,26 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getDetail:function(shopId){
+    var that = this;
+    wx.request({
+      url: config.apiUrl + "/shop/ele/one", // 仅为示例，并非真实的接口地址
+      data: {
+        shop_id: shopId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        that.setData(
+          {
+            shopInfo: res.data.data.content,
+          }
+        );
+        //console.log(res.data.data)
+      }
+    })
   }
 })

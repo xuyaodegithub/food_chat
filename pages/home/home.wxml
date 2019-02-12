@@ -63,7 +63,7 @@
   <view style='float:right;color:blue;font-size:26rpx;padding:10rpx' bindtap='openCatChart'>打开图表模式</view>
   </view>
   
-    <view wx:for="{{catRankList}}" class="{{categoryListClass}}">
+    <view wx:for="{{catRankList}}" class="{{categoryListClass}}" bindtap='openCatDetail' data-index="{{index}}">
       <view class="area-item">
         <view style='width:60rpx'>{{index+1}}</view>
         <view class='area-item-column'>
@@ -83,7 +83,7 @@
     </view>
   </van-tab>
   <van-tab title="店铺排行">
-    <view wx:for="{{shopRankList}}" class="{{shopListClass}}">
+    <view wx:for="{{shopRankList}}" class="{{shopListClass}}" bindtap='openShopDetail' data-index="{{index}}">
       <view class="area-item">
         <view style='width:60rpx'>{{index+1}}</view>
         <view class='area-item-column'>

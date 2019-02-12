@@ -504,6 +504,32 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-  }
+  },
+
+  openCatDetail: function (e) {
+    console.log(e.currentTarget.dataset.index);
+
+
+    var itemData = this.data.catRankList[e.currentTarget.dataset.index];
+    
+    wx.navigateTo({
+      url: '/pages/cat-detail/cat-detail?selectedCity=' + this.data.regionData.selectedCity + '&selectedDistrict=' + this.data.regionData.selectedDistrict.name + '&districtId=' + this.data.regionData.selectedDistrict.id + '&food_name=' + itemData.food_name,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  openShopDetail: function (e) {
+    console.log(e.currentTarget.dataset.index);
+    var itemData = this.data.shopRankList[e.currentTarget.dataset.index];
+
+    wx.navigateTo({
+      url: '/pages/shop-detail/shopDetail?shopId=' + itemData.md5id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
 
 })

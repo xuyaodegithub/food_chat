@@ -36,13 +36,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "shopDetail",
 					"pathName": "pages/shop-detail/shopDetail",
-					"query": ""
+					"query": "shopId=2d83078402c1e82ef06e90dff0da44f7"
 				},
 				{
 					"id": -1,
@@ -59,7 +59,14 @@
 				{
 					"id": -1,
 					"name": "area-detail",
-					"pathName": "pages/area-detail/area-detail"
+					"pathName": "pages/area-detail/area-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "cat-detail",
+					"pathName": "pages/cat-detail/cat-detail",
+					"query": ""
 				}
 			]
 		}

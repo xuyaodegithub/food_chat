@@ -1,20 +1,19 @@
 <!--pages/shop-detail/shopDetail.wxml-->
 <view class='body'>
-  <view class='h1 row'>王道小乐惠</view>
-  <text class='tag row'>川湘菜</text>
-  <text class='tag row'>川湘菜</text>
+  <view class='h1 row'>{{shopInfo.name}}</view>
+  <text wx:for="{{shopInfo.flavors}}" class='tag row'>{{item.name}}</text>
   <view style='display:flex;justify-content:space-around;margin:20rpx' class='text'>
     <view>
-      <view>4.5分</view>
+      <view>{{shopInfo.rating}}分</view>
       <view>店铺评分</view>
     </view>
     <view>
-      <view>4.5分</view>
-      <view>店铺评分</view>
+      <view>{{shopInfo.recent_order_num}}</view>
+      <view>月销</view>
     </view>
     <view>
-      <view>4.5分</view>
-      <view>店铺评分</view>
+      <view>{{shopInfo.float_minimum_order_amount}}</view>
+      <view>起送价</view>
     </view>
   </view>
 
@@ -24,14 +23,12 @@
   <view>
   </view>
   <view class='h3 row' >公告与活动</view>
-  <view class='text row'>公告与活动</view>
-  <view class='text row'>公告与活动</view>
-  <view class='text row'>公告与活动</view>
+  <view class='text row' wx:for="{{shopInfo.activities}}" >{{item.description}}</view>
 
   <view class='h3 row' style='margin-top:20rpx'>商家信息</view>
-  <view class='text row'>电话：88888888</view>
-  <view class='text row'>地址：杭州市滨江区xx路xx号王道公园</view>
-  <view class='text row'>营业时间：11:00~14:00，16:30~21:00</view>
+  <view class='text row'>电话：{{shopInfo.phone}}</view>
+  <view class='text row'>地址：{{shopInfo.address}}</view>
+  <view class='text row'>营业时间：<text  wx:for="{{shopInfo.opening_hours}}" style='margin-right:10rpx'>{{item}}</text></view>
 
   <view class='h3 row' style='margin-top:20rpx'>商家照片</view>
   <image></image>

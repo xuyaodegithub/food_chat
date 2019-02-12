@@ -49,11 +49,18 @@ Page({
           name: options.selectedDistrict,
           id: options.districtId
         },
-        selectedArea: {
-          name: options.selectedArea,
-          id: options.areaId
-        }
+        // selectedArea: {
+        //   name: options.selectedArea,
+        //   id: options.areaId
+        // },
+        food_name: options.food_name
       };
+      if (options.selectedArea){
+        regionData.selectedArea = {
+           name: options.selectedArea,
+           id: options.areaId
+        }
+      }
     }
     else {
       regionData = {
@@ -66,7 +73,8 @@ Page({
         selectedArea: {
           name: "303生活广场",
           id: 16839
-        }
+        },
+        food_name: ""
       };
     }
     this.setData(
@@ -261,38 +269,30 @@ Page({
 
 
     var that = this;
-
-    var foodCatRateData = {
-      //province: regionData.selectedProvince,
-      city: regionData.selectedCity,
-      district: regionData.selectedDistrict.name,
-      area_name: regionData.selectedArea.name,
-    };
     var weekRequestData = {};
     var shopRankRequestData = { page: 1, pageSize: 100 };
+    weekRequestData.grade = 2;
+    if (regionData.selectedDistrict.name != '全部') {
+      weekRequestData.grade = 3;
+      shopRankRequestData.district = regionData.selectedDistrict.name
+    }
+    weekRequestData.regionId = regionData.selectedDistrict.id;
+    if (regionData.selectedArea){
+      weekRequestData.grade = 4;
+      weekRequestData.regionId = regionData.selectedArea.id;
+    }
     
-    weekRequestData.grade = 4;
-    weekRequestData.regionId = regionData.selectedArea.id;
+   
+    
     shopRankRequestData.city = regionData.selectedCity
-    shopRankRequestData.district = regionData.selectedDistrict.name
-    shopRankRequestData.area_name = regionData.selectedArea.name
-
+    
+    if (regionData.selectedArea){
+      shopRankRequestData.area_name = regionData.selectedArea.name
+    }
+    
+    shopRankRequestData.food_name = regionData.food_name
     this.weekRequestData = weekRequestData;
-    wx.request({
-      url: config.apiUrl + "/food/ele/rate", // 仅为示例，并非真实的接口地址
-      data: foodCatRateData,
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        that.setData(
-          {
-            catRankList: res.data.data
-          }
-        );
-        //console.log(res.data.data)
-      }
-    })
+    
 
     wx.request({
       url: config.apiUrl + "/area/week", // 仅为示例，并非真实的接口地址
@@ -344,19 +344,6 @@ Page({
         );
         //console.log(res.data.data)
       }
-    })
-  },
-  openCatDetail: function (e) {
-    console.log(e.currentTarget.dataset.index);
-
-
-    var itemData = this.data.catRankList[e.currentTarget.dataset.index];
-
-    wx.navigateTo({
-      url: '/pages/cat-detail/cat-detail?selectedCity=' + this.data.regionData.selectedCity + '&selectedDistrict=' + this.data.regionData.selectedDistrict.name + '&districtId=' + this.data.regionData.selectedDistrict.id + '&food_name=' + itemData.food_name + '&selectedArea=' + this.data.regionData.selectedArea.name + '&areaId=' + this.data.regionData.selectedArea.id,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
     })
   },
   openShopDetail: function (e) {
