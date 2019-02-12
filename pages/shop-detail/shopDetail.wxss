@@ -1,0 +1,14 @@
+/* pages/shop-detail/shopDetail.wxss */
+.chart-container{
+  height: 180pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 180pt;
+}

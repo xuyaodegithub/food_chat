@@ -1,0 +1,108 @@
+<!--pages/home/home.wxml-->
+<!-- <view>
+  <view class='tab-active'>饿了么</view>
+  <view class='tab-inactive'>美团</view>
+</view> -->
+<van-tabs type="card" color="#5B70DD">
+  <van-tab title="饿了么"></van-tab>
+  <van-tab title="美团"></van-tab>
+</van-tabs>
+<area-picker bindchange="bindRegionChange" selectedData="{{regionData}}">
+  
+</area-picker>
+<view style='display:flex;justify-content:space-around'>
+  <view>
+    <view class='text'>4.5分</view>
+    <view class='text'>蓝海指数</view>
+  </view>
+  <view>
+    <view class='text'>{{shopCount}}</view>
+    <view class='text'>店铺总数</view>
+  </view>
+  <view>
+    <view class='text'>{{avgSalesCount}}</view>
+    <view class='text'>平均月销</view>
+  </view>
+</view>
+<view class='chart-container'>
+  <ec-canvas id="mychart" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+<!-- <i-tabs current="{{ current }}" bindchange="handleChange">
+  <i-tab key="tab1" title="商圈排行">1</i-tab>
+  <i-tab key="tab2" title="菜系排行">2</i-tab>
+  <i-tab key="tab3" title="店铺排行">3</i-tab>
+</i-tabs> -->
+<van-tabs type="line" color="#5B70DD">
+  <van-tab title="商圈排行">
+   <view style='height:60rpx'>
+  <view style='display:inline-block;padding:10rpx'><text> </text></view>
+  <view style='float:right;color:blue;font-size:26rpx;padding:10rpx' bindtap='openMap'>打开地图模式</view>
+  </view>
+    <view wx:for="{{areaRankList}}" class="{{areaListClass}}" bindtap='openAreaDetail' data-index="{{index}}">
+      <view class="area-item">
+        <view style='width:60rpx'>{{index+1}}</view>
+        <view class='area-item-column' >
+          <view class='h3'>{{item.city}} {{item.area}}</view>
+          <text>店铺{{item.shopCount}}家；月均销售{{item.avgSalesCount}}</text>
+        </view>
+        <view style='width:140rpx'>
+          <view class='h3' style='color:blue'>80%</view>
+          <text>蓝海指数</text>
+        </view>
+        <view style='width:140rpx'>
+          <view class='h3' style='color:red'>{{item.salesCount}}</view>
+          <text>月销量</text>
+        </view>
+      </view>
+      <view class='hline'></view>
+    </view>
+  </van-tab>
+  <van-tab title="菜系排行">
+   <view style='height:60rpx'>
+  <view style='display:inline-block'> </view>
+  <view style='float:right;color:blue;font-size:26rpx;padding:10rpx' bindtap='openCatChart'>打开图表模式</view>
+  </view>
+  
+    <view wx:for="{{catRankList}}" class="{{categoryListClass}}">
+      <view class="area-item">
+        <view style='width:60rpx'>{{index+1}}</view>
+        <view class='area-item-column'>
+          <view class='h3'>{{item.food_name}}</view>
+          <text>店铺{{item.shop_num}}家；月均销售{{item.average_order_num}}</text>
+        </view>
+        <view style='width:140rpx'>
+          <view class='h3' style='color:blue'>80%</view>
+          <text>蓝海指数</text>
+        </view>
+        <view style='width:140rpx'>
+          <view class='h3' style='color:red'>{{item.recent_order_num}}</view>
+          <text>月销量</text>
+        </view>
+      </view>
+      <view class='hline'></view>
+    </view>
+  </van-tab>
+  <van-tab title="店铺排行">
+    <view wx:for="{{shopRankList}}" class="{{shopListClass}}">
+      <view class="area-item">
+        <view style='width:60rpx'>{{index+1}}</view>
+        <view class='area-item-column'>
+          <view class='h3'>{{item.shop_name}}</view>
+          <view style="display:flex; margin-top:10rpx">
+            <van-rate value="{{item.rate}}" >
+            </van-rate>
+            <view style="display:inline-block;" class='text'>{{item.label}}</view>
+          </view>
+
+        </view>
+        <view style='width:140rpx'>
+          <view class='h3'>{{item.recent_order_num}}</view>
+          <text>月销量</text>
+        </view>
+      </view>
+      <view class='hline'></view>
+    </view>
+
+  </van-tab>
+</van-tabs>
+

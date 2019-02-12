@@ -1,0 +1,4 @@
+<!--pages/cat-chart/cat-chart.wxml-->
+<view class='chart-container'>
+  <ec-canvas id="mychart" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

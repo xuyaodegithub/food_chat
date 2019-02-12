@@ -1,0 +1,67 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxad8d1481d287d0bb",
+	"projectname": "food-data",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "shopDetail",
+					"pathName": "pages/shop-detail/shopDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "business-map",
+					"pathName": "pages/business-map/business-map",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "cat-chart",
+					"pathName": "pages/cat-chart/cat-chart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "area-detail",
+					"pathName": "pages/area-detail/area-detail"
+				}
+			]
+		}
+	}
+}

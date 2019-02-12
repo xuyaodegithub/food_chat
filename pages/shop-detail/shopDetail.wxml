@@ -1,0 +1,40 @@
+<!--pages/shop-detail/shopDetail.wxml-->
+<view class='body'>
+  <view class='h1 row'>王道小乐惠</view>
+  <text class='tag row'>川湘菜</text>
+  <text class='tag row'>川湘菜</text>
+  <view style='display:flex;justify-content:space-around;margin:20rpx' class='text'>
+    <view>
+      <view>4.5分</view>
+      <view>店铺评分</view>
+    </view>
+    <view>
+      <view>4.5分</view>
+      <view>店铺评分</view>
+    </view>
+    <view>
+      <view>4.5分</view>
+      <view>店铺评分</view>
+    </view>
+  </view>
+
+  <view class='chart-container'>
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <view>
+  </view>
+  <view class='h3 row' >公告与活动</view>
+  <view class='text row'>公告与活动</view>
+  <view class='text row'>公告与活动</view>
+  <view class='text row'>公告与活动</view>
+
+  <view class='h3 row' style='margin-top:20rpx'>商家信息</view>
+  <view class='text row'>电话：88888888</view>
+  <view class='text row'>地址：杭州市滨江区xx路xx号王道公园</view>
+  <view class='text row'>营业时间：11:00~14:00，16:30~21:00</view>
+
+  <view class='h3 row' style='margin-top:20rpx'>商家照片</view>
+  <image></image>
+  <image></image>
+  
+</view>

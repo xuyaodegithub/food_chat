@@ -1,0 +1,20 @@
+/* pages/business-map/business-map.wxss */
+.map_container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.area-item{
+  padding: 4pt;
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.area-item-column{
+  flex-grow:1;
+}
+cover-view{
+  font-size: 10pt;
+}

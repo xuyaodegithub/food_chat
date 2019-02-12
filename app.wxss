@@ -1,0 +1,47 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.body {
+  padding: 20rpx;
+} 
+
+text{
+  font-size: 10pt;
+  color: #80848f;
+}
+.row{
+  padding: 10rpx;
+}
+
+.text{
+  font-size: 10pt;
+  color: #80848f;
+}
+
+.h3{
+  font-size: 12pt;
+}
+
+.h1{
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+.hline{
+  height: 1px;
+  background-color: lightgray;
+}
+.tag{
+  margin-left: 8pt;
+  border-radius: 8pt;
+  background-color: #5B70DD;
+  color: white;
+  padding: 3pt 8pt 3pt 8pt;
+}

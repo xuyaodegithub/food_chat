@@ -1,0 +1,5 @@
+<picker style='font-size:30rpx' mode="multiSelector" range="{{range}}" bindcolumnchange="regionColumnChange"  bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+  <view class="picker text">
+    当前选择：{{selectedProvince}}，{{selectedCity}}，{{selectedDistrict.name}}
+  </view>
+</picker>
