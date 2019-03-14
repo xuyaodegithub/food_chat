@@ -3,9 +3,9 @@
   <view class='tab-active'>饿了么</view>
   <view class='tab-inactive'>美团</view>
 </view> -->
-<van-tabs type="card" color="#5B70DD">
+<van-tabs type="card" color="#5B70DD" bind:disabled="headTabChange">
   <van-tab title="饿了么"></van-tab>
-  <van-tab title="美团"></van-tab>
+  <van-tab title="美团" disabled></van-tab>
 </van-tabs>
 <view class="picker text" style='padding:20rpx'>
     {{regionData.selectedProvince}} {{regionData.selectedCity}} {{regionData.selectedDistrict.name}} {{regionData.selectedArea.name}}

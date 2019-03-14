@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -67,6 +67,17 @@
 					"name": "cat-detail",
 					"pathName": "pages/cat-detail/cat-detail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webview",
+					"pathName": "pages/webview/webview",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "brand",
+					"pathName": "pages/brand/brand"
 				}
 			]
 		}

@@ -1,0 +1,2 @@
+<!--pages/webview/webview.wxml-->
+<web-view src="https://qa.puhuoji.com/foodMap/index.html?v=1"></web-view>

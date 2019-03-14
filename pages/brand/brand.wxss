@@ -1,0 +1,34 @@
+/* pages/brand/brand.wxss */
+page{
+  padding: 10rpx
+}
+
+.food-tag{
+  border-radius: 5rpx;
+  padding: 10rpx;
+  margin: 10rpx;
+  font-size: 24rpx;
+  display: inline-block;
+  background-color: gainsboro;
+  color: black;
+}
+
+.food-tag-selected{
+  border-radius: 5rpx;
+  padding: 10rpx;
+  margin: 10rpx;
+  font-size: 24rpx;
+  display: inline-block;
+  background-color: #5B70DD;
+  color: white;
+}
+
+.area-item{
+  padding: 4pt;
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.area-item-column{
+  flex-grow:1;
+}

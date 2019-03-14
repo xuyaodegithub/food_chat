@@ -1,0 +1,35 @@
+<!--pages/brand/brand.wxml-->
+<view class='h1'>品牌排行</view>
+<!-- <van-tag>标签</van-tag>
+<van-tag type="danger">标签</van-tag>
+<van-tag type="primary">标签</van-tag>
+<van-tag type="success">标签</van-tag> -->
+<view>
+    <view class='{{selectedTagIndex == 0? "food-tag-selected":"food-tag"}}' bindtap="selectTag" data-tag="全部" data-index = "0">全部</view>
+    <view class='{{selectedTagIndex == index+1? "food-tag-selected":"food-tag"}}' wx:for="{{brandCates}}" bindtap="selectTag" data-tag="{{item.key}}" data-index = "{{index+1}}">{{item.key}}</view>
+</view>
+<!-- <van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item name="1">
+    <view slot="title">下拉选择类目<van-icon name="question-o" /></view>
+    <view class='{{selectedTagIndex == 0? "food-tag-selected":"food-tag"}}' bindtap="selectTag" data-tag="全部" data-index = "0">全部</view>
+    <view class='{{selectedTagIndex == index+1? "food-tag-selected":"food-tag"}}' wx:for="{{brandCates}}" bindtap="selectTag" data-tag="{{item.key}}" data-index = "{{index+1}}">{{item.key}}</view>
+  </van-collapse-item>
+</van-collapse> -->
+<view wx:for="{{brandRankList}}" class="{{categoryListClass}}" data-index="{{index}}">
+      <view class="area-item">
+        <view style='width:60rpx'>{{index+1}}</view>
+        <view class='area-item-column'>
+          <view class='h3'>{{item.key}}</view>
+          <text>店铺{{item.doc_count}}家；月均销售{{item.avgSalesCount}}</text>
+        </view>
+        
+        <view style='width:140rpx'>
+          <view class='h3' style='color:red'>{{item.monthSale.value}}</view>
+          <text>月销量</text>
+        </view>
+        <view style='width:160rpx'>
+          <button style='font-size:24rpx' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">我要加盟</button>
+        </view>
+      </view>
+      <view class='hline'></view>
+    </view>

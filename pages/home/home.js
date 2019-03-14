@@ -138,6 +138,7 @@ Page({
     areaRankList:[],
     weekData:[],
     shopRankList: [],
+    brandRankList: [],
     shopCount:"--",
     salesCount: "--",
     avgSalesCount: "--",
@@ -271,13 +272,27 @@ Page({
     })
 
   },
+  // openMap: function (e) {
+  //   var lat = this.data.areaRankList[0].lat;
+  //   var lng = this.data.areaRankList[0].lng;
+  //   var grade = this.weekRequestData.grade;
+  //   var regionId = this.weekRequestData.regionId;
+  //   wx.navigateTo({
+  //     url: '/pages/business-map/business-map?lat=' + lat + '&lng=' + lng + '&grade=' + grade + '&regionId=' + regionId,
+  //     success: function (res) { },
+  //     fail: function (res) { },
+  //     complete: function (res) { },
+  //   })
+
+  // },
+
   openMap: function (e) {
     var lat = this.data.areaRankList[0].lat;
     var lng = this.data.areaRankList[0].lng;
     var grade = this.weekRequestData.grade;
     var regionId = this.weekRequestData.regionId;
     wx.navigateTo({
-      url: '/pages/business-map/business-map?lat=' + lat + '&lng=' + lng + '&grade=' + grade + '&regionId=' + regionId,
+      url: '/pages/webview/webview?lat=' + lat + '&lng=' + lng + '&grade=' + grade + '&regionId=' + regionId,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -362,7 +377,9 @@ Page({
 
   requestData:function(regionData){
 
-    
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this;
 
     var foodCatRateData = {};
@@ -371,18 +388,46 @@ Page({
       pageNo:100
     };
     var weekRequestData = {};
+    var brandSearchData = {
+      // "query": {
+      //   "match": {
+      //     "city": "杭州"
+      //   }
+      // },
+      "size": 0,
+      "aggs": {
+        "brand": {
+          "terms": {
+            "field": "brand",
+            "size": 100
+          },
+          "aggs": {
+            "monthSale": {
+              "sum": {
+                "field": "month_sale"
+              }
+            }
+          }
+        }
+      }
+    }
+
+    var matchCondition = [];
     var shopRankRequestData = {page:1,pageSize:100};
     areaRankRequestData.regionId = regionData.selectedDistrict.id;
     if (regionData.selectedProvince != '全国'){
       foodCatRateData.province = regionData.selectedProvince;
+      matchCondition.push({ "term": { "province": { "value": regionData.selectedProvince}}})
       areaRankRequestData.grade = 1;
       if (regionData.selectedCity != '全部') {
         foodCatRateData.city = regionData.selectedCity;
         shopRankRequestData.city = regionData.selectedCity;
+        matchCondition.push({ "term": { "city": { "value": regionData.selectedCity } } })
         areaRankRequestData.grade = 2;
         if (regionData.selectedDistrict.name != '全部') {
           foodCatRateData.district = regionData.selectedDistrict.name;
           shopRankRequestData.district = regionData.selectedDistrict.name;
+          matchCondition.push({ "term": { "district": { "value": regionData.selectedDistrict.name } } })
           areaRankRequestData.grade = 3;
         }
         else{
@@ -418,25 +463,55 @@ Page({
       }
     })
 
+    // wx.request({
+    //   url: config.apiUrl + "/area/rank", // 仅为示例，并非真实的接口地址
+    //   data: areaRankRequestData,
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     var result = [];
+    //     for (var i = 0; i < res.data.data.length; i++) {
+    //       var row = res.data.data[i];
+    //       row.avgSalesCount = parseInt(row.avgSalesCount);
+    //       result.push(row);
+    //     }
+
+    //     that.setData(
+    //       {
+    //         areaRankList: result
+    //       }
+    //     );
+    //     //console.log(res.data.data)
+    //   }
+    // })
+    if (matchCondition.length >0){
+      brandSearchData.query = { "bool": { "must": matchCondition}}
+    }
     wx.request({
-      url: config.apiUrl + "/area/rank", // 仅为示例，并非真实的接口地址
-      data: areaRankRequestData,
+      url: config.apiUrl + "/shop/ele/search", // 仅为示例，并非真实的接口地址
+      data: brandSearchData,
       header: {
         'content-type': 'application/json' // 默认值
       },
+      method:"post",
       success(res) {
         var result = [];
-        for (var i = 0; i < res.data.data.length; i++) {
-          var row = res.data.data[i];
-          row.avgSalesCount = parseInt(row.avgSalesCount);
-          result.push(row);
+        var list = res.data.aggregations.brand.buckets;
+        for (var i = 0; i < list.length; i++) {
+          var row = list[i];
+          if(row.key != ''){
+            row.avgSalesCount = Math.round(row.monthSale.value / row.doc_count);
+            result.push(row);
+          }
         }
-
+        
         that.setData(
           {
-            areaRankList: result
+            brandRankList: result,
           }
         );
+        wx.hideLoading()
         //console.log(res.data.data)
       }
     })
@@ -465,6 +540,7 @@ Page({
             avgSalesCount: parseInt(res.data.data[0].salesCount / res.data.data[0].shopCount)
           }
         );
+        wx.hideLoading()
         //console.log(res.data.data)
       }
     })
@@ -488,6 +564,7 @@ Page({
             shopRankList: res.data.data
           }
         );
+        
         //console.log(res.data.data)
       }
     })
@@ -532,4 +609,10 @@ Page({
     })
   },
 
+  headTabChange: function (e) {
+    wx.showToast({
+      title: `美团数据正在开发中`,
+      icon: 'none'
+    });
+  },
 })

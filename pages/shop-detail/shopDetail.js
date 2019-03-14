@@ -132,6 +132,9 @@ Page({
   },
 
   getDetail:function(shopId){
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this;
     wx.request({
       url: config.apiUrl + "/shop/ele/one", // 仅为示例，并非真实的接口地址
@@ -147,6 +150,7 @@ Page({
             shopInfo: res.data.data.content,
           }
         );
+        wx.hideLoading()
         //console.log(res.data.data)
       }
     })

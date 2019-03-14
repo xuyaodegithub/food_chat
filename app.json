@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/webview/webview",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
@@ -7,12 +8,33 @@
     "pages/business-map/business-map",
     "pages/cat-chart/cat-chart",
     "pages/area-detail/area-detail",
-    "pages/cat-detail/cat-detail"
+    "pages/cat-detail/cat-detail",
+    "pages/brand/brand"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "外卖数据",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#333",
+    "selectedColor": "#cf2a32",
+    "list": [
+      {
+        "pagePath": "pages/webview/webview",
+        "text": "热力图"
+      },
+      {
+        "pagePath": "pages/brand/brand",
+        "text": "品牌"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "区域"
+      }
+    ]
   }
 }

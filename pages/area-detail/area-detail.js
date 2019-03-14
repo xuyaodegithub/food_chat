@@ -259,7 +259,9 @@ Page({
 
   requestData: function (regionData) {
 
-
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this;
 
     var foodCatRateData = {
@@ -342,6 +344,7 @@ Page({
             shopRankList: res.data.data
           }
         );
+        wx.hideLoading()
         //console.log(res.data.data)
       }
     })
@@ -369,6 +372,13 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+  },
+
+  headTabChange: function (e) {
+    wx.showToast({
+      title: `美团数据正在开发中`,
+      icon: 'none'
+    });
   },
 
 })

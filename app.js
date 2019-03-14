@@ -1,4 +1,5 @@
 //app.js
+var config = require('./config.js');
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -6,10 +7,23 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    var app = this;
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: config.apiUrl + "/user/loginByWeixinCode", // 仅为示例，并非真实的接口地址
+          data: {
+            code: res.code
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            app.token = res.data.data.token;
+          }
+        })
       }
     })
     // 获取用户信息
