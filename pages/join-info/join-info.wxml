@@ -1,0 +1,23 @@
+<!--pages/join-info/join-info.wxml-->
+<view style='text-align:center;color:#3277F0;padding:50rpx;'>
+  <van-icon name="checked" style='font-size:100rpx' />
+  <view style='font-size:40rpx;'>
+    已申请，可补充需求
+  </view>
+  <view style='font-size:30rpx'>
+    完善的需求可以得到更好的服务
+  </view>
+</view>
+
+<van-cell-group style="margin-top:50rpx;">
+  <picker bindchange="bindBudgetChange"  range="{{budgetOptions}}">
+    <van-cell title="投资预算" value="{{budget}}" is-link />
+  </picker>
+  <picker bindchange="bindExperienceChange"  range="{{experienceOptions}}">
+    <van-cell title="开店经验" value="{{experience}}" is-link />
+  </picker>
+  <picker bindchange="bindHaveShopChange"  range="{{haveShopOptions}}">
+    <van-cell title="是否有店面" value="{{haveShop}}" is-link />
+  </picker>
+</van-cell-group>
+<button style='background-color:#3277F0;color:white;margin:50rpx;' bindtap='onSubmit'>完成</button>

@@ -1,0 +1,111 @@
+<!--pages/shop-detail/shopDetail.wxml-->
+<view class='body'>
+  <view class='h1 row'>{{brandName}}</view>
+  <text wx:for="{{flavors}}" class='tag row'>{{item}}</text>
+  <view style='display:flex;justify-content:space-around;margin:20rpx' class='text'>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{monthSale}}</view>
+      <view>月总销量</view>
+    </view>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{shopCount}}</view>
+      <view>店铺总数</view>
+    </view>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{avgSale}}</view>
+      <view>店铺平均销量</view>
+    </view>
+  </view>
+
+
+  <view>
+  </view>
+  <van-tabs active="{{ active }}" bind:change="onTabChange">
+    <van-tab title="全部">
+      <view wx:for="{{shopRankList}}" class="{{shopListClass}}" bindtap='openShopDetail' data-index="{{index}}">
+        <view class="area-item">
+          <view style='width:60rpx'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item["name.keyword"]}}</view>
+            <view style="display:flex; margin-top:10rpx">
+              <van-rate value="{{item.ratting}}">
+              </van-rate>
+              <view style="display:inline-block;" class='text'>{{item.label}}</view>
+            </view>
+
+          </view>
+          <view style='width:140rpx'>
+            <view class='h3'>{{item.month_sale}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+    </van-tab>
+    <van-tab title="{{provinceRankList[0].key}}({{provinceRankList[0].doc_count}})">
+    <view wx:for="{{shopRankList1}}" class="{{shopListClass}}" bindtap='openShopDetail' data-index="{{index}}">
+        <view class="area-item">
+          <view style='width:60rpx'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item["name.keyword"]}}</view>
+            <view style="display:flex; margin-top:10rpx">
+              <van-rate value="{{item.ratting}}">
+              </van-rate>
+              <view style="display:inline-block;" class='text'>{{item.label}}</view>
+            </view>
+
+          </view>
+          <view style='width:140rpx'>
+            <view class='h3'>{{item.month_sale}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+    </van-tab>
+    <van-tab title="{{provinceRankList[1].key}}({{provinceRankList[1].doc_count}})">
+    <view wx:for="{{shopRankList2}}" class="{{shopListClass}}" bindtap='openShopDetail' data-index="{{index}}">
+        <view class="area-item">
+          <view style='width:60rpx'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item["name.keyword"]}}</view>
+            <view style="display:flex; margin-top:10rpx">
+              <van-rate value="{{item.ratting}}">
+              </van-rate>
+              <view style="display:inline-block;" class='text'>{{item.label}}</view>
+            </view>
+
+          </view>
+          <view style='width:140rpx'>
+            <view class='h3'>{{item.month_sale}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+    </van-tab>
+    <van-tab title="{{provinceRankList[2].key}}({{provinceRankList[2].doc_count}})">
+    <view wx:for="{{shopRankList3}}" class="{{shopListClass}}" bindtap='openShopDetail' data-index="{{index}}">
+        <view class="area-item">
+          <view style='width:60rpx'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item["name.keyword"]}}</view>
+            <view style="display:flex; margin-top:10rpx">
+              <van-rate value="{{item.ratting}}">
+              </van-rate>
+              <view style="display:inline-block;" class='text'>{{item.label}}</view>
+            </view>
+
+          </view>
+          <view style='width:140rpx'>
+            <view class='h3'>{{item.month_sale}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+    </van-tab>
+  </van-tabs>
+  <view style='height:100rpx'></view>
+<button style='background-color:#3277F0;color:white;margin:30rpx;position:fixed; bottom:0rpx; width:90%' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-brand="{{brandName}}">申请加盟</button>
+</view>

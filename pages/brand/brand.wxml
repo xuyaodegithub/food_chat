@@ -1,5 +1,5 @@
 <!--pages/brand/brand.wxml-->
-<view class='h1'>品牌排行</view>
+<view class='h1' style='display:inline-block'>品牌排行</view><button style='float:right;' class='businessBtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber2">品牌合作</button>
 <!-- <van-tag>标签</van-tag>
 <van-tag type="danger">标签</van-tag>
 <van-tag type="primary">标签</van-tag>
@@ -24,11 +24,11 @@
         </view>
         
         <view style='width:140rpx'>
-          <view class='h3' style='color:red'>{{item.monthSale.value}}</view>
+          <view class='h3' style='color:red'>{{item.monthSaleStr}}</view>
           <text>月销量</text>
         </view>
         <view style='width:160rpx'>
-          <button style='font-size:24rpx' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">我要加盟</button>
+          <button style='font-size:24rpx' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-brand='{{item.key}}'>我要加盟</button>
         </view>
       </view>
       <view class='hline'></view>

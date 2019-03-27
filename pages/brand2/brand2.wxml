@@ -1,0 +1,67 @@
+<!--pages/brand2/brand2.wxml-->
+<view class='page'>
+  <!-- <view class='address'>
+    <van-icon name="location-o" style='color:blue' />
+    <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx;'>全国</text>
+    <van-icon name="arrow" style='color:black' />
+    <button size='mini' style='font-size:24rpx;margin-right:20rpx;background-color:#5B70DD;color:white'>品牌合作</button>
+  </view> -->
+  <!-- <view style='display:flex;justify-content:center;margin-top:10rpx;'> -->
+  <!-- <input type='text' placeholder="请输入品牌名" class='searchInput'></input> -->
+
+  <!-- </view> -->
+
+  <van-search value="{{ searchText }}" placeholder="请输入品牌名称" bind:search="onSearch" bind:cancel="onCancel"/>
+  <view class='row'>
+  <city-picker style='flex-grow:1' bindchange="bindRegionChange" selectedData="{{regionData}}">
+  <view style='display:flex;justify-content:space-between;'>
+        <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx; display:inline-block'>地区： {{selectedArea}}</text>
+        <van-icon name="arrow" style='color:black' />
+      </view>
+  </city-picker>
+    <!-- <picker style='flex-grow:1' mode="multiSelector" range="{{range}}" bindcolumnchange="regionColumnChange" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      
+
+    </picker> -->
+
+    <view class='vline' style='height:40rpx'>
+    </view>
+    <view style='display:flex;justify-content:space-between;flex-grow:1' bindtap='showCates'>
+      <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx;'>品类: {{foodCate}}</text>
+      <van-icon name="arrow" style='color:black' />
+    </view>
+  </view>
+  <view class='hline'></view>
+  <block wx:for="{{brandRankList}}">
+    <view class='row' bindtap='openBrandDetail' data-brand="{{item.key}}">
+      <image class="column-img" src='{{item.brandImg}}'></image>
+      <view class='column-w1' style='position:relative;'>
+        <view class='h1'>{{item.key}}</view>
+        <view>
+          <text>月销量：</text>
+          <text>{{item.monthSaleStr}}</text>
+        </view>
+        <view style='display:flex;position:absolute;bottom:0rpx;width:100%'>
+          <view>
+            <text>流行区域：</text>
+            <text>{{item.hot_area}}</text>
+          </view>
+          <button size='mini' plain="true" style='font-size:24rpx;margin-right:20rpx;background-color:#F3F3F3;color:#5B70DD; border-radius: 30rpx; border-width:0' open-type="getPhoneNumber" catchtap="getPhoneNumberCatch" bindgetphonenumber="getPhoneNumber" data-brand="{{item.key}}">申请加盟</button>
+        </view>
+      </view>
+      <view>
+
+      </view>
+    </view>
+    <view class='hline'></view>
+  </block>
+  <van-popup show="{{ showFoodCates }}" position="bottom" bind:click-overlay="closeFoodCates" >
+  <view>
+    <view class='{{selectedTagIndex == 0? "food-tag-selected":"food-tag"}}' bindtap="selectTag" data-tag="全部" data-index = "0">全部</view>
+    <view class='{{selectedTagIndex == index+1? "food-tag-selected":"food-tag"}}' wx:for="{{brandCates}}" bindtap="selectTag" data-tag="{{item.key}}" data-index = "{{index+1}}">{{item.key}}</view>
+</view>
+  </van-popup>
+  <button class='btn-ruzhu' plain="true" style='background-color:#5B70DD;color:white;border-width: 0;line-height:1.6;font-size:36rpx' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber2" data-brand="品牌合作">
+  <view>品牌</view>
+  <view>入驻</view></button>
+</view>

@@ -73,22 +73,100 @@ Page({
   onLoad: function (options) {
     this.echartsComponnet = this.selectComponent('#mychart');
     var that = this;
+
+
+    // wx.request({
+    //   url: config.apiUrl + "/food/ele/rate", // 仅为示例，并非真实的接口地址
+    //   data: {
+    //     city: '杭州',
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     that.setData(
+    //       {
+    //         catRankList: res.data.data
+    //       }
+    //     );
+    //     var options = that.getOptionFromCatList(res.data.data);
+    //     that.init_echarts(options);
+    //     //console.log(res.data.data)
+    //   }
+    // })
+    var foodCateSearchData = {
+      "size": 0,
+      "aggs": {
+        "flavor": {
+          "terms": {
+            "field": "flavors",
+            "size": 100
+          },
+          "aggs": {
+            "monthSale": {
+              "sum": {
+                "field": "month_sale"
+              }
+            }
+          }
+        }
+      }
+    }
+    var matchCondition = [];
+    if (options.selectedProvince != '全国') {
+      foodCatRateData.province = regionData.selectedProvince;
+      matchCondition.push({ "term": { "province": { "value": regionData.selectedProvince } } })
+      areaRankRequestData.grade = 1;
+      if (regionData.selectedCity != '全部') {
+        foodCatRateData.city = regionData.selectedCity;
+        shopRankRequestData.city = regionData.selectedCity;
+        matchCondition.push({ "term": { "city": { "value": regionData.selectedCity } } })
+        areaRankRequestData.grade = 2;
+        if (regionData.selectedDistrict.name != '全部') {
+          foodCatRateData.district = regionData.selectedDistrict.name;
+          shopRankRequestData.district = regionData.selectedDistrict.name;
+          matchCondition.push({ "term": { "district": { "value": regionData.selectedDistrict.name } } })
+          areaRankRequestData.grade = 3;
+        }
+        else {
+          areaRankRequestData.grade = 2;
+        }
+      }
+      else {
+        areaRankRequestData.grade = 1;
+        areaRankRequestData.regionId = regionData.selectedDistrict.id;
+      }
+    }
+    else {
+      areaRankRequestData.grade = 1;
+      areaRankRequestData.regionId = 0;
+    }
+
     wx.request({
-      url: config.apiUrl + "/food/ele/rate", // 仅为示例，并非真实的接口地址
-      data: {
-        city: '杭州',
-      },
+      url: config.apiUrl + "/shop/ele/search", // 仅为示例，并非真实的接口地址
+      data: foodCateSearchData,
       header: {
         'content-type': 'application/json' // 默认值
       },
+      method: "post",
       success(res) {
+        var result = [];
+        var list = res.data.aggregations.flavor.buckets;
+        for (var i = 0; i < list.length; i++) {
+          var row = list[i];
+          if (row.key != '') {
+            row.avgSalesCount = Math.round(row.monthSale.value / row.doc_count);
+            row.monthSaleStr = formatNumberW(row.monthSale.value)
+            result.push(row);
+          }
+        }
+
         that.setData(
           {
-            catRankList: res.data.data
+            catRankList: result,
           }
         );
-        var options = that.getOptionFromCatList(res.data.data);
-        that.init_echarts(options);
+        wx.hideLoading()
         //console.log(res.data.data)
       }
     })

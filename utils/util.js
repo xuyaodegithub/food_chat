@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const formatNumberW = n => {
+  if (n < 10000) return n
+  var floatW = n / 10000.0;
+  if (floatW < 10){
+    return floatW.toFixed(1) + "w";
+  }
+  return Math.round(floatW) + "w";
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatNumberW: formatNumberW
 }

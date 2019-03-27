@@ -1,4 +1,5 @@
 import * as echarts from '../../ec-canvas/echarts';
+import { formatNumberW } from '../../utils/util.js'
 const app = getApp();
 var config = require('../../config.js');
 
@@ -412,6 +413,36 @@ Page({
       }
     }
 
+    var shopSearchData={
+      "size": 100,
+      "sort": [
+        {
+          "month_sale": {
+            "order": "desc"
+          }
+        }
+      ]
+    }
+
+    var foodCateSearchData = {
+      "size": 0,
+      "aggs": {
+        "flavor": {
+          "terms": {
+            "field": "flavors",
+            "size": 100
+          },
+          "aggs": {
+            "monthSale": {
+              "sum": {
+                "field": "month_sale"
+              }
+            }
+          }
+        }
+      }
+    }
+
     var matchCondition = [];
     var shopRankRequestData = {page:1,pageSize:100};
     areaRankRequestData.regionId = regionData.selectedDistrict.id;
@@ -447,21 +478,21 @@ Page({
     weekRequestData.regionId = areaRankRequestData.regionId;
 
     this.weekRequestData = weekRequestData;
-    wx.request({
-      url: config.apiUrl + "/food/ele/rate", // 仅为示例，并非真实的接口地址
-      data: foodCatRateData,
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        that.setData(
-          {
-            catRankList: res.data.data
-          }
-        );
-        //console.log(res.data.data)
-      }
-    })
+    // wx.request({
+    //   url: config.apiUrl + "/food/ele/rate", // 仅为示例，并非真实的接口地址
+    //   data: foodCatRateData,
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     that.setData(
+    //       {
+    //         catRankList: res.data.data
+    //       }
+    //     );
+    //     //console.log(res.data.data)
+    //   }
+    // })
 
     // wx.request({
     //   url: config.apiUrl + "/area/rank", // 仅为示例，并非真实的接口地址
@@ -487,6 +518,8 @@ Page({
     // })
     if (matchCondition.length >0){
       brandSearchData.query = { "bool": { "must": matchCondition}}
+      shopSearchData.query = { "bool": { "must": matchCondition } }
+      foodCateSearchData.query = { "bool": { "must": matchCondition } }
     }
     wx.request({
       url: config.apiUrl + "/shop/ele/search", // 仅为示例，并非真实的接口地址
@@ -502,6 +535,7 @@ Page({
           var row = list[i];
           if(row.key != ''){
             row.avgSalesCount = Math.round(row.monthSale.value / row.doc_count);
+            row.monthSaleStr = formatNumberW(row.monthSale.value)
             result.push(row);
           }
         }
@@ -509,6 +543,63 @@ Page({
         that.setData(
           {
             brandRankList: result,
+          }
+        );
+        wx.hideLoading()
+        //console.log(res.data.data)
+      }
+    })
+    wx.request({
+      url: config.apiUrl + "/shop/ele/search", // 仅为示例，并非真实的接口地址
+      data: foodCateSearchData,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: "post",
+      success(res) {
+        var result = [];
+        var list = res.data.aggregations.flavor.buckets;
+        for (var i = 0; i < list.length; i++) {
+          var row = list[i];
+          if (row.key != '') {
+            row.avgSalesCount = Math.round(row.monthSale.value / row.doc_count);
+            row.monthSaleStr = formatNumberW(row.monthSale.value)
+            result.push(row);
+          }
+        }
+
+        that.setData(
+          {
+            catRankList: result,
+          }
+        );
+        wx.hideLoading()
+        //console.log(res.data.data)
+      }
+    })
+    wx.request({
+      url: config.apiUrl + "/shop/ele/search", // 仅为示例，并非真实的接口地址
+      data: shopSearchData,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: "post",
+      success(res) {
+        var result = [];
+        var list = res.data.hits.hits;
+        for (var i = 0; i < list.length; i++) {
+          var row = list[i]['_source'];
+          //if (row.key != '') {
+          //row.avgSalesCount = Math.round(row.month_sale.value / row.doc_count);
+            //row.monthSaleStr = formatNumberW(row.monthSale.value)
+            row.label = row.flavors.join(" ")
+            result.push(row);
+          //}
+        }
+
+        that.setData(
+          {
+            shopRankList: result,
           }
         );
         wx.hideLoading()
@@ -546,28 +637,28 @@ Page({
     })
 
 
-    wx.request({
-      url: config.apiUrl + "/shop/ele/rate", // 仅为示例，并非真实的接口地址
-      data: shopRankRequestData,
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        // var result = [];
-        // for (var i = 0; i < res.data.data.length; i++) {
-        //   var row = res.data.data[i];
-        //   row.avgSalesCount = parseInt(row.avgSalesCount);
-        //   result.push(row);
-        // }
-        that.setData(
-          {
-            shopRankList: res.data.data
-          }
-        );
+    // wx.request({
+    //   url: config.apiUrl + "/shop/ele/rate", // 仅为示例，并非真实的接口地址
+    //   data: shopRankRequestData,
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     // var result = [];
+    //     // for (var i = 0; i < res.data.data.length; i++) {
+    //     //   var row = res.data.data[i];
+    //     //   row.avgSalesCount = parseInt(row.avgSalesCount);
+    //     //   result.push(row);
+    //     // }
+    //     that.setData(
+    //       {
+    //         shopRankList: res.data.data
+    //       }
+    //     );
         
-        //console.log(res.data.data)
-      }
-    })
+    //     //console.log(res.data.data)
+    //   }
+    // })
   },
 
   openAreaDetail:function(e){

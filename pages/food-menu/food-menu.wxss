@@ -1,7 +1,27 @@
-/* pages/brand/brand.wxss */
-.page{
+/* pages/brand2/brand2.wxss */
+page{
   padding: 10rpx;
   width: 100%;
+}
+
+.address{
+  display: flex;
+  align-items:center;
+  
+}
+
+.row{
+  display: flex;
+  padding: 20rpx;
+}
+
+.column-img{
+  width:200rpx;height:200rpx;
+}
+
+.column-w1{
+  margin-left: 20rpx;
+  flex-grow:1
 }
 
 .food-tag{
@@ -22,19 +42,4 @@
   display: inline-block;
   background-color: #5B70DD;
   color: white;
-}
-
-.area-item{
-  padding: 4pt;
-  display: flex;
-  justify-content:space-around;
-  align-items:center;
-}
-.area-item-column{
-  flex-grow:1;
-}
-
-.businessBtn{
-  background-color: #5B70DD;
-  color: white
 }

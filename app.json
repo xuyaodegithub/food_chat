@@ -9,7 +9,13 @@
     "pages/cat-chart/cat-chart",
     "pages/area-detail/area-detail",
     "pages/cat-detail/cat-detail",
-    "pages/brand/brand"
+    "pages/brand/brand",
+    "pages/brand2/brand2",
+    "pages/brand-detail/brand-detail",
+    "pages/food-menu/food-menu",
+    "pages/join-info/join-info",
+    "pages/brand-enter/brand-enter",
+    "pages/quan-detail/quan-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,15 +31,21 @@
     "list": [
       {
         "pagePath": "pages/webview/webview",
-        "text": "热力图"
+        "text": "热力图",
+        "iconPath": "images/hot.png",
+        "selectedIconPath": "images/hot1.png"
       },
       {
-        "pagePath": "pages/brand/brand",
-        "text": "品牌"
+        "pagePath": "pages/food-menu/food-menu",
+        "text": "菜品",
+        "iconPath": "images/food.png",
+        "selectedIconPath": "images/food1.png"
       },
       {
-        "pagePath": "pages/home/home",
-        "text": "区域"
+        "pagePath": "pages/brand2/brand2",
+        "text": "品牌",
+        "iconPath": "images/brand.png",
+        "selectedIconPath": "images/brand1.png"
       }
     ]
   }

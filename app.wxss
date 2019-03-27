@@ -38,10 +38,31 @@ text{
   height: 1px;
   background-color: lightgray;
 }
+
+.vline{
+  width: 1px;
+  background-color: lightgray;
+}
+
 .tag{
   margin-left: 8pt;
   border-radius: 8pt;
   background-color: #5B70DD;
   color: white;
   padding: 3pt 8pt 3pt 8pt;
+}
+
+.searchInput{
+  background-color: #F3F3F3;
+  border-radius: 10rpx;
+  width: 80%;
+  text-align: center;
+  padding: 10rpx;
+  font-size: 26rpx;
+}
+
+.fixed-content {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 }

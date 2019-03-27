@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -77,7 +77,43 @@
 				{
 					"id": -1,
 					"name": "brand",
-					"pathName": "pages/brand/brand"
+					"pathName": "pages/brand/brand",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "brand2",
+					"pathName": "pages/brand2/brand2",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "brand-detail",
+					"pathName": "pages/brand-detail/brand-detail",
+					"query": "brand=绝味鸭脖"
+				},
+				{
+					"id": -1,
+					"name": "food-menu",
+					"pathName": "pages/food-menu/food-menu",
+					"query": "brand=绝味鸭脖"
+				},
+				{
+					"id": -1,
+					"name": "join-info",
+					"pathName": "pages/join-info/join-info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "brand-enter",
+					"pathName": "pages/brand-enter/brand-enter"
 				}
 			]
 		}

@@ -1,0 +1,57 @@
+/* pages/brand2/brand2.wxss */
+page{
+  padding: 10rpx;
+  width: 100%;
+}
+
+.address{
+  display: flex;
+  align-items:center;
+  
+}
+
+.row{
+  display: flex;
+  padding: 20rpx;
+}
+
+.column-img{
+  width:160rpx;height:160rpx;
+}
+
+.column-w1{
+  margin-left: 20rpx;
+  flex-grow:1
+}
+
+.food-tag{
+  border-radius: 5rpx;
+  padding: 10rpx;
+  margin: 10rpx;
+  font-size: 24rpx;
+  display: inline-block;
+  /* background-color: gainsboro; */
+  color: black;
+}
+
+.food-tag-selected{
+  border-radius: 5rpx;
+  padding: 10rpx;
+  margin: 10rpx;
+  font-size: 24rpx;
+  display: inline-block;
+  background-color: #5B70DD;
+  color: white;
+}
+
+.btn-ruzhu{
+  position: fixed;
+  bottom: 10rpx;
+  right: 10rpx;
+  border-radius: 60rpx;
+  
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #5B70DD;
+  font-size: 24rpx;
+}

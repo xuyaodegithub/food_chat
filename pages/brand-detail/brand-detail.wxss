@@ -1,0 +1,27 @@
+.chart-container{
+  height: 180pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 180pt;
+}
+
+.area-item{
+  padding: 4pt;
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.area-item-column{
+  flex-grow:1;
+}
+
+.hidden{
+  display: none;
+}

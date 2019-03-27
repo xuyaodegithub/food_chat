@@ -1,6 +1,6 @@
 const app = getApp();
 var config = require('../../config.js');
-
+import {formatNumberW} from '../../utils/util.js'
 var brandCates = [
   {
     "key": "简餐",
@@ -348,6 +348,7 @@ Page({
           var row = list[i];
           if (row.key != '') {
             row.avgSalesCount = Math.round(row.monthSale.value / row.doc_count);
+            row.monthSaleStr = formatNumberW(row.monthSale.value);
             result.push(row);
           }
         }
@@ -366,9 +367,11 @@ Page({
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
+    var brand = e.target.dataset.brand;
     wx.request({
-      url: config.apiUrl + "/user/weixinSavePhone", // 仅为示例，并非真实的接口地址
+      url: config.apiUrl + "/user/applyForAlliance", // 仅为示例，并非真实的接口地址
       data: {
+        brandName: brand,
         encryptedData: e.detail.encryptedData,
         iv: e.detail.iv
       },
@@ -379,6 +382,29 @@ Page({
       method: "get",
       success(res) {
         wx.showModal({ title:"提交成功",content:"您的手机号已成功提交，我们将会派专人与你取得联系"})
+      }
+    })
+  },
+
+  getPhoneNumber2: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+    var brand = e.target.dataset.brand;
+    wx.request({
+      url: config.apiUrl + "/user/applyForAlliance", // 仅为示例，并非真实的接口地址
+      data: {
+        brandName: '品牌合作',
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': app.token
+      },
+      method: "get",
+      success(res) {
+        wx.showModal({ title: "提交成功", content: "您的手机号已成功提交，我们将会派专人与你取得联系" })
       }
     })
   },

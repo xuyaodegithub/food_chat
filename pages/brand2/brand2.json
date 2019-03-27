@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-tag": "../../vant/tag/index",
+    "van-collapse": "../../vant/collapse/index",
+    "van-collapse-item": "../../vant/collapse-item/index",
+    "van-icon": "../../vant/icon/index",
+    "van-search": "../../vant/search/index",
+    "van-row": "../../vant/row/index",
+    "van-col": "../../vant/col/index",
+    "city-picker": "../../components/city-picker/city-picker",
+    "van-popup": "../../vant/popup/index"
+  }
+}

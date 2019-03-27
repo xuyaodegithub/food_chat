@@ -76,7 +76,7 @@
           <text>蓝海指数</text>
         </view> -->
         <view style='width:140rpx'>
-          <view class='h3' style='color:red'>{{item.monthSale.value}}</view>
+          <view class='h3' style='color:red'>{{item.monthSaleStr}}</view>
           <text>月销量</text>
         </view>
       </view>
@@ -84,24 +84,24 @@
     </view>
   </van-tab>
   <van-tab title="菜系排行">
-   <view style='height:60rpx'>
+   <!-- <view style='height:60rpx'>
   <view style='display:inline-block'> </view>
   <view style='float:right;color:blue;font-size:26rpx;padding:10rpx' bindtap='openCatChart'>打开图表模式</view>
-  </view>
+  </view> -->
   
     <view wx:for="{{catRankList}}" class="{{categoryListClass}}" bindtap='openCatDetail' data-index="{{index}}">
       <view class="area-item">
         <view style='width:60rpx'>{{index+1}}</view>
         <view class='area-item-column'>
-          <view class='h3'>{{item.food_name}}</view>
-          <text>店铺{{item.shop_num}}家；月均销售{{item.average_order_num}}</text>
+          <view class='h3'>{{item.key}}</view>
+          <text>店铺{{item.doc_count}}家；月均销售{{item.avgSalesCount}}</text>
         </view>
         <!-- <view style='width:140rpx'>
           <view class='h3' style='color:blue'>80%</view>
           <text>蓝海指数</text>
         </view> -->
         <view style='width:140rpx'>
-          <view class='h3' style='color:red'>{{item.recent_order_num}}</view>
+          <view class='h3' style='color:red'>{{item.monthSaleStr}}</view>
           <text>月销量</text>
         </view>
       </view>
@@ -113,16 +113,16 @@
       <view class="area-item">
         <view style='width:60rpx'>{{index+1}}</view>
         <view class='area-item-column'>
-          <view class='h3'>{{item.shop_name}}</view>
+          <view class='h3'>{{item["name.keyword"]}}</view>
           <view style="display:flex; margin-top:10rpx">
-            <van-rate value="{{item.rate}}" >
+            <van-rate value="{{item.ratting}}" >
             </van-rate>
             <view style="display:inline-block;" class='text'>{{item.label}}</view>
           </view>
 
         </view>
         <view style='width:140rpx'>
-          <view class='h3'>{{item.recent_order_num}}</view>
+          <view class='h3'>{{item.month_sale}}</view>
           <text>月销量</text>
         </view>
       </view>

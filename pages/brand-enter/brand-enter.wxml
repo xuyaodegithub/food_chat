@@ -1,0 +1,34 @@
+<!--pages/join-info/join-info.wxml-->
+<view style='text-align:center;color:#3277F0;padding:50rpx;'>
+  <van-icon name="checked" style='font-size:100rpx' />
+  <view style='font-size:40rpx;'>
+    已申请，可补充需求
+  </view>
+  <view style='font-size:30rpx'>
+    完善的需求可以得到更好的服务
+  </view>
+</view>
+
+<van-cell-group style="margin-top:50rpx;">
+  <van-field
+    value="{{ brandName }}"
+    clearable
+    label="品牌名称"
+    placeholder="请输入品牌名称"
+    bind:click-icon="onClickIcon"
+  />
+  <picker bindchange="bindBudgetChange"  range="{{budgetOptions}}">
+    <van-cell title="加盟费用" value="{{budget}}" is-link />
+  </picker>
+  <van-field
+  size="large"
+  autosize="true"
+    value="{{ comment }}"
+    clearable
+    type="textarea"
+    label="留言信息"
+    placeholder="请输入留言信息"
+    bind:click-icon="onClickIcon"
+  />
+</van-cell-group>
+<button style='background-color:#3277F0;color:white;margin:50rpx;' bindtap='onSubmit'>完成</button>
