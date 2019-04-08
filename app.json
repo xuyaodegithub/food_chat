@@ -26,8 +26,8 @@
   "tabBar": {
     "backgroundColor": "#fff",
     "borderStyle": "black",
-    "color": "#333",
-    "selectedColor": "#cf2a32",
+    "color": "#A3A3A3",
+    "selectedColor": "#2B7CEB",
     "list": [
       {
         "pagePath": "pages/webview/webview",

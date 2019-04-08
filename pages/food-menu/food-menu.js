@@ -173,13 +173,25 @@ Page({
     }
 
     var conditions = [];
-
+    searchBody.query = {
+      "bool": {
+        "must": [
+          {
+            "range": {
+              "avg_price": {
+                "gte": 10
+              }
+            }
+          }
+        ]
+      }
+    }
     if (this.data.searchText != '') {
-      searchBody.query = {
+      searchBody.query.bool.must.push({
         "match_phrase": {
           "name": this.data.searchText
         }
-      }
+      });
     }
 
     wx.request({

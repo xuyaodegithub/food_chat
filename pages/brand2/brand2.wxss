@@ -1,8 +1,5 @@
 /* pages/brand2/brand2.wxss */
-page{
-  padding: 10rpx;
-  width: 100%;
-}
+
 
 .address{
   display: flex;
@@ -12,7 +9,6 @@ page{
 
 .row{
   display: flex;
-  padding: 20rpx;
 }
 
 .column-img{

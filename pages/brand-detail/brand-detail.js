@@ -1,5 +1,39 @@
 var regions = require('../../libs/regions2.js');
 var foodCates = require('../../libs/foodCates.js');
+var provinceShortNames = {
+  "辽宁省": "辽宁",
+  "安徽省": "安徽",
+  "河北省": "河北",
+  "内蒙古自治区": "内蒙古",
+  "山东省": "山东",
+  "北京市": "北京",
+  "陕西省": "陕西",
+  "吉林省": "吉林",
+  "宁夏回族自治区": "宁夏",
+  "甘肃省": "甘肃",
+  "湖南省": "湖南",
+  "云南省": "云南",
+  "贵州省": "贵州",
+  "广东省": "广东",
+  "浙江省": "浙江",
+  "福建省": "福建",
+  "江苏省": "江苏",
+  "河南省": "河南",
+  "四川省": "四川",
+  "山西省": "山西",
+  "江西省": "江西",
+  "广西壮族自治区": "广西",
+  "湖北省": "湖北",
+  "青海省": "青海",
+  "海南省": "海南",
+  "新疆维吾尔自治区": "新疆",
+  "台湾省": "台湾",
+  "天津市": "天津",
+  "西藏自治区": "西藏",
+  "黑龙江省": "黑龙江",
+  "上海市": "上海",
+  "重庆市": "重庆"
+}
 import {
   formatNumberW
 } from '../../utils/util.js'
@@ -22,7 +56,9 @@ Page({
     shopRankList1: [],
     shopRankList2: [],
     shopRankList3: [],
-    provinceRankList: ["北京", "上海", "广东"]
+    provinceShopRankList:[],
+    provinceRankList: ["北京", "上海", "广东"],
+    provinceShortNames: provinceShortNames
   },
 
   /**
@@ -111,7 +147,7 @@ Page({
         "hot_province": {
           "terms": {
             "field": "province",
-            "size": 5
+            "size": 10
           }
         }
 
@@ -138,9 +174,11 @@ Page({
           shopRankList.push(row);
         }
         var provinceRankList = [];
+        var provinceShopRankList = [];
         for (var i = 0; i < res.data.aggregations.hot_province.buckets.length; i++) {
           var row = res.data.aggregations.hot_province.buckets[i];
           provinceRankList.push(row);
+          provinceShopRankList.push([]);
         }
         that.setData({
           shopRankList: shopRankList,
@@ -148,7 +186,8 @@ Page({
           monthSale: formatNumberW(res.data.aggregations.monthSale.value),
           shopCount: res.data.hits.total,
           avgSale: Math.round(res.data.aggregations.monthSale.value / res.data.hits.total),
-          provinceRankList: provinceRankList
+          provinceRankList: provinceRankList,
+          provinceShopRankList: provinceShopRankList
         });
         wx.hideLoading()
         //console.log(res.data.data)
@@ -203,22 +242,27 @@ Page({
           row.label = row.city + " " + row.district;
           shopRankList.push(row);
         }
+        var data = that.data.provinceShopRankList;
 
-        if (index == 0) {
-          that.setData({
-            shopRankList1: shopRankList,
-          });
-        }
-        else if (index == 1) {
-          that.setData({
-            shopRankList2: shopRankList,
-          });
-        }
-        else if (index == 2) {
-          that.setData({
-            shopRankList3: shopRankList,
-          });
-        }
+        data[index] = shopRankList;
+        that.setData({
+          provinceShopRankList: data,
+        });
+        // if (index == 0) {
+        //   that.setData({
+        //     shopRankList1: shopRankList,
+        //   });
+        // }
+        // else if (index == 1) {
+        //   that.setData({
+        //     shopRankList2: shopRankList,
+        //   });
+        // }
+        // else if (index == 2) {
+        //   that.setData({
+        //     shopRankList3: shopRankList,
+        //   });
+        // }
         wx.hideLoading()
         //console.log(res.data.data)
       }
@@ -260,20 +304,33 @@ Page({
     if (provinceIndex <0){
       return
     }
-    if (provinceIndex == 0) {
-      if (this.data.shopRankList1.length==0){
-        this.getShopList(provinceIndex);
-      }
+    if (this.data.provinceShopRankList[provinceIndex].length == 0){
+    this.getShopList(provinceIndex);
     }
-    else if (provinceIndex == 1) {
-      if (this.data.shopRankList2.length == 0) {
-        this.getShopList(provinceIndex);
-      }
-    }
-    else if (provinceIndex == 2) {
-      if (this.data.shopRankList3.length == 0) {
-        this.getShopList(provinceIndex);
-      }
-    }
-  }
+    // if (provinceIndex == 0) {
+    //   if (this.data.shopRankList1.length==0){
+    //     this.getShopList(provinceIndex);
+    //   }
+    // }
+    // else if (provinceIndex == 1) {
+    //   if (this.data.shopRankList2.length == 0) {
+    //     this.getShopList(provinceIndex);
+    //   }
+    // }
+    // else if (provinceIndex == 2) {
+    //   if (this.data.shopRankList3.length == 0) {
+    //     this.getShopList(provinceIndex);
+    //   }
+    // }
+  },
+  openShopDetail: function (e) {
+    console.log(e.currentTarget.dataset.id);
+
+    wx.navigateTo({
+      url: '/pages/shop-detail/shopDetail?shopId=' + e.currentTarget.dataset.id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
 })

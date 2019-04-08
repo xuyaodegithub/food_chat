@@ -1,2 +1,141 @@
-<!--pages/quan-detail/quan-detail.wxml-->
-<text>pages/quan-detail/quan-detail.wxml</text>
+<view class='body'>
+  <view class='h1'>
+    {{quanName}}
+  </view>
+  <text>中心点一公里外卖信息</text>
+  <!-- <view style='display:flex;justify-content:space-around;margin-top:50rpx;margin-bottom:50rpx;' class='text'>
+  <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{monthSale}}</view>
+      <view>月总销量</view>
+    </view>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{shopCount}}</view>
+      <view>店铺总数</view>
+    </view>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{avgMonthSale}}</view>
+      <view>店铺平均销量</view>
+    </view>
+</view> -->
+  <view style='margin-top:50rpx;margin-bottom:50rpx;margin-left:30rpx'>
+    <van-row>
+      <van-col span="8">
+        <view style='color:black;font-size:30rpx;font-weight:bold'>{{monthSale}}</view>
+        <view class='text'>月总销量</view>
+      </van-col>
+      <van-col span="8">
+        <view style='color:black;font-size:30rpx;font-weight:bold'>{{shopCount}}</view>
+        <view class='text'>店铺总数</view>
+      </van-col>
+      <van-col span="8">
+        <view style='color:black;font-size:30rpx;font-weight:bold'>{{avgMonthSale}}</view>
+        <view class='text'>店铺平均销量</view>
+      </van-col>
+    </van-row>
+  </view>
+  <view style='margin-top:50rpx;margin-bottom:50rpx;margin-left:30rpx'>
+    <van-row>
+      <van-col span="8">
+        <view style='color:black;font-size:30rpx;font-weight:bold'>{{workNum}}</view>
+        <view class='text'>写字楼</view>
+      </van-col>
+      <van-col span="8">
+        <view style='color:black;font-size:30rpx;font-weight:bold'>{{schoolNum}}</view>
+        <view class='text'>学校</view>
+      </van-col>
+      <van-col span="8">
+        <view style='color:black;font-size:30rpx;font-weight:bold'>{{homeNum}}</view>
+        <view class='text'>居民楼</view>
+      </van-col>
+    </van-row>
+  </view>
+  <!-- <view style='display:flex;justify-content:space-around;margin-top:50rpx;margin-bottom:50rpx;' class='text'>
+  <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{workNum}}</view>
+      <view>写字楼</view>
+    </view>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{schoolNum}}</view>
+      <view>学校</view>
+    </view>
+    <view>
+      <view style='color:black;font-size:30rpx;font-weight:bold'>{{homeNum}}</view>
+      <view>居民楼</view>
+    </view>
+</view> -->
+  <van-tabs type="line" color="#5B70DD">
+
+    <van-tab title="菜系排行">
+      <!-- <view style='height:60rpx'>
+  <view style='display:inline-block'> </view>
+  <view style='float:right;color:blue;font-size:26rpx;padding:10rpx' bindtap='openCatChart'>打开图表模式</view>
+  </view> -->
+
+      <view wx:for="{{catRankList}}" class="{{categoryListClass}}" bindtap='openCatDetail' data-index="{{index}}" >
+        <view class="area-item" style='padding:30rpx 0 30rpx 0'>
+          <view style='width:60rpx;color:#A3A3A3'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item.key}}</view>
+            <text>店铺{{item.doc_count}}家；月均销售{{item.avgSalesCount}}</text>
+          </view>
+          <!-- <view style='width:140rpx'>
+          <view class='h3' style='color:blue'>80%</view>
+          <text>蓝海指数</text>
+        </view> -->
+          <view style='width:140rpx'>
+            <view class='h3' style='color:#2B7CEB'>{{item.monthSaleStr}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+    </van-tab>
+    <van-tab title="店铺排行">
+      <view wx:for="{{shopRankList}}" class="{{shopListClass}}" bindtap='openShopDetail' data-index="{{index}}">
+        <view class="area-item" style='padding:30rpx 0 30rpx 0'>
+          <view style='width:60rpx;color:#A3A3A3'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item["name.keyword"]}}</view>
+            <view style="display:flex; margin-top:10rpx">
+              <van-rate value="{{item.ratting}}">
+              </van-rate>
+              <view style="display:inline-block;" class='text'>{{item.label}}</view>
+            </view>
+
+          </view>
+          <view style='width:140rpx'>
+            <view class='h3' style='color:#2B7CEB'>{{item.month_sale}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+
+    </van-tab>
+    <van-tab title="品牌排行">
+      <!-- <view style='height:60rpx'>
+  <view style='display:inline-block'> </view>
+  <view style='float:right;color:blue;font-size:26rpx;padding:10rpx' bindtap='openCatChart'>打开图表模式</view>
+  </view> -->
+
+      <view wx:for="{{brandRankList}}" class="{{categoryListClass}}" data-index="{{index}}" bindtap='openBrandDetail' data-brand="{{item.key}}">
+        <view class="area-item" style='padding:30rpx 0 30rpx 0'>
+          <view style='width:60rpx;color:#A3A3A3'>{{index+1}}</view>
+          <view class='area-item-column'>
+            <view class='h3'>{{item.key}}</view>
+            <text>店铺{{item.doc_count}}家；月均销售{{item.avgSalesCount}}</text>
+          </view>
+          <!-- <view style='width:140rpx'>
+          <view class='h3' style='color:blue'>80%</view>
+          <text>蓝海指数</text>
+        </view> -->
+          <view style='width:140rpx'>
+            <view class='h3' style='color:#2B7CEB'>{{item.monthSaleStr}}</view>
+            <text>月销量</text>
+          </view>
+        </view>
+        <view class='hline'></view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

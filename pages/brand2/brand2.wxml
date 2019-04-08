@@ -1,5 +1,5 @@
 <!--pages/brand2/brand2.wxml-->
-<view class='page'>
+<view class='body'>
   <!-- <view class='address'>
     <van-icon name="location-o" style='color:blue' />
     <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx;'>全国</text>
@@ -11,32 +11,39 @@
 
   <!-- </view> -->
 
-  <van-search value="{{ searchText }}" placeholder="请输入品牌名称" bind:search="onSearch" bind:cancel="onCancel"/>
-  <view class='row'>
-  <city-picker style='flex-grow:1' bindchange="bindRegionChange" selectedData="{{regionData}}">
-  <view style='display:flex;justify-content:space-between;'>
-        <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx; display:inline-block'>地区： {{selectedArea}}</text>
-        <van-icon name="arrow" style='color:black' />
-      </view>
-  </city-picker>
-    <!-- <picker style='flex-grow:1' mode="multiSelector" range="{{range}}" bindcolumnchange="regionColumnChange" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-      
-
-    </picker> -->
-
-    <view class='vline' style='height:40rpx'>
+  <van-search value="{{ searchText }}" placeholder="请输入品牌名称" bind:search="onSearch" bind:cancel="onCancel" />
+  <view style='height:60rpx;display:flex;align-items:center'>
+    <view style='width:45%;display:inline-block;height:100%'>
+      <city-picker style='display:inline-block;height:100%;width:100%;' bindchange="bindRegionChange" selectedData="{{regionData}}">
+        <view style='display:flex;justify-content:space-between;'>
+          <view style='display:inline-block'>
+            <text style='font-size:30rpx;'>地区： </text>
+            <text style='font-size:30rpx;color:black'>{{selectedArea}}</text>
+          </view>
+          <van-icon name="arrow" style='color:#A3A3A3;font-size:30rpx;display:inline-block;' />
+        </view>
+      </city-picker>
     </view>
-    <view style='display:flex;justify-content:space-between;flex-grow:1' bindtap='showCates'>
-      <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx;'>品类: {{foodCate}}</text>
-      <van-icon name="arrow" style='color:black' />
+    <view  style="width:10%;display:inline-block;text-align:center;height:100%">
+      <view class='vline' style='height:80%;display:inline-block;vertical-align:middle'>
+      </view>
+    </view>
+    <view style="width:45%;display:inline-block;height:100%">
+      <view style='display:flex;justify-content:space-between; align-items:center' bindtap='showCates'>
+        <view style='display:inline-block;'>
+            <text style='font-size:30rpx;display:inline-block;'>品类： </text>
+            <text style='font-size:30rpx;color:black;display:inline-block;'>{{foodCate}}</text>
+        </view>
+        <van-icon name="arrow" style='color:#A3A3A3;font-size:30rpx;display:inline-block;' />
+      </view>
     </view>
   </view>
-  <view class='hline'></view>
+  <view class='hline' style='width:100%;'></view>
   <block wx:for="{{brandRankList}}">
     <view class='row' bindtap='openBrandDetail' data-brand="{{item.key}}">
       <image class="column-img" src='{{item.brandImg}}'></image>
       <view class='column-w1' style='position:relative;'>
-        <view class='h1'>{{item.key}}</view>
+        <view class='h1' style='font-size:32rpx'>{{item.key}}</view>
         <view>
           <text>月销量：</text>
           <text>{{item.monthSaleStr}}</text>
@@ -55,13 +62,14 @@
     </view>
     <view class='hline'></view>
   </block>
-  <van-popup show="{{ showFoodCates }}" position="bottom" bind:click-overlay="closeFoodCates" >
-  <view>
-    <view class='{{selectedTagIndex == 0? "food-tag-selected":"food-tag"}}' bindtap="selectTag" data-tag="全部" data-index = "0">全部</view>
-    <view class='{{selectedTagIndex == index+1? "food-tag-selected":"food-tag"}}' wx:for="{{brandCates}}" bindtap="selectTag" data-tag="{{item.key}}" data-index = "{{index+1}}">{{item.key}}</view>
-</view>
+  <van-popup show="{{ showFoodCates }}" position="bottom" bind:click-overlay="closeFoodCates">
+    <view>
+      <view class='{{selectedTagIndex == 0? "food-tag-selected":"food-tag"}}' bindtap="selectTag" data-tag="全部" data-index="0">全部</view>
+      <view class='{{selectedTagIndex == index+1? "food-tag-selected":"food-tag"}}' wx:for="{{brandCates}}" bindtap="selectTag" data-tag="{{item.key}}" data-index="{{index+1}}">{{item.key}}</view>
+    </view>
   </van-popup>
-  <button class='btn-ruzhu' plain="true" style='background-color:#5B70DD;color:white;border-width: 0;line-height:1.6;font-size:36rpx' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber2" data-brand="品牌合作">
-  <view>品牌</view>
-  <view>入驻</view></button>
+  <button class='btn-ruzhu' plain="true" style='background-color:#5B70DD;color:white;border-width: 0;line-height:1;font-size:30rpx;display:flex;flex-direction:column; align-items:center;justify-content:center' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber2" data-brand="品牌合作">
+    <view>品牌</view>
+    <view>入驻</view>
+  </button>
 </view>

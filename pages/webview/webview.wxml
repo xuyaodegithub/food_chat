@@ -1,3 +1,2 @@
 <!--pages/webview/webview.wxml-->
-<web-view src="https://qa.puhuoji.com/foodMap/index.html?v=2"></web-view>
-<button style='float:right;' class='businessBtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber2">品牌合作</button>
+<web-view src="https://qa.puhuoji.com/foodMap/v2/index.html?v=5"></web-view>

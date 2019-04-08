@@ -1,5 +1,5 @@
 <!--pages/brand2/brand2.wxml-->
-<view class='page'>
+<view class='body'>
   <!-- <view class='address'>
     <van-icon name="location-o" style='color:blue' />
     <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx;'>全国</text>
@@ -15,8 +15,10 @@
   <view class='row'>
   <city-picker style='flex-grow:1' bindchange="bindRegionChange" selectedData="{{regionData}}">
   <view style='display:flex;justify-content:space-between;'>
-        <text style='font-size:30rpx;padding-left:20rpx;padding-right:20rpx; display:inline-block'>地区： {{selectedArea}}</text>
-        <van-icon name="arrow" style='color:black' />
+        <view style='display:inline-block'>
+        <text style='font-size:30rpx;'>地区： </text><text style='font-size:30rpx;color:black'>{{selectedArea}}</text>
+        </view>
+        <van-icon name="arrow" style='color:#A3A3A3' />
       </view>
   </city-picker>
     <!-- <picker style='flex-grow:1' mode="multiSelector" range="{{range}}" bindcolumnchange="regionColumnChange" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
@@ -36,19 +38,19 @@
     <view class='row'>
       <image class="column-img" src='{{item.foodImg}}'></image>
       <view class='column-w1' style='position:relative;'>
-        <view class='h1'>{{item.key}}</view>
+        <view class='h1' style='font-size:30rpx'>{{item.key}}</view>
         <view>
           <text>月销量：</text>
-          <text>{{item.monthSaleStr}}</text>
+          <text class='field-value'>{{item.monthSaleStr}}</text>
         </view>
         <!-- <view style='display:flex;position:absolute;bottom:0rpx;width:100%'> -->
           <view>
             <text>热卖区域：</text>
-            <text>{{item.hot_area}}</text>
+            <text class='field-value'>{{item.hot_area}}</text>
           </view>
-          <view>
-            <text>热卖品牌：</text>
-            <text class='fixed-content' style='max-width:340rpx;display:inline-block'>{{item.hot_brandStr}}</text>
+          <view style='display:flex;margin-top:10rpx;'>
+            <view style='display:inline-block' class='text'>热卖品牌：</view>
+            <view class='fixed-content field-value' style='max-width:340rpx;display:inline-block'>{{item.hot_brandStr}}</view>
           </view>
         <!-- </view> -->
       </view>

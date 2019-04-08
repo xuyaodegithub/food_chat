@@ -40,13 +40,12 @@ text{
 }
 
 .vline{
-  width: 1px;
+  width: 5rpx;
   background-color: lightgray;
 }
 
 .tag{
-  margin-left: 8pt;
-  border-radius: 8pt;
+  border-radius: 16rpx;
   background-color: #5B70DD;
   color: white;
   padding: 3pt 8pt 3pt 8pt;
@@ -65,4 +64,9 @@ text{
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+}
+
+.field-value{
+  font-size: 26rpx;
+  color: black;
 }
