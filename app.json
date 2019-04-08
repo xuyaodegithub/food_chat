@@ -1,15 +1,9 @@
 {
   "pages": [
     "pages/webview/webview",
-    "pages/home/home",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/shop-detail/shopDetail",
-    "pages/business-map/business-map",
     "pages/cat-chart/cat-chart",
-    "pages/area-detail/area-detail",
     "pages/cat-detail/cat-detail",
-    "pages/brand/brand",
     "pages/brand2/brand2",
     "pages/brand-detail/brand-detail",
     "pages/food-menu/food-menu",

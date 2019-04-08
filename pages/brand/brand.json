@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "van-tag": "../../vant/tag/index",
-    "van-collapse": "../../vant/collapse/index",
-    "van-collapse-item": "../../vant/collapse-item/index"
-  }
-}
