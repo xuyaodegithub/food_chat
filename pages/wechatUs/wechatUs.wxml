@@ -1,0 +1,15 @@
+<view class='flex'>
+  <view class="icons">1</view>
+  <view>加管理员微信</view>
+</view>
+<view class="content">
+  <view>1、手机加微信：189 6900 4349</view>
+  <image src="../../images/second.jpg" mode='widthFix'></image>
+    <view>2、扫码加微信</view>
+    <view class="test">长按保存下方二维码-微信打开扫一扫-从相册中识别二维码</view>
+  <image src="../../images/first.jpg" mode='widthFix'  bindlongpress="saveImg"></image>
+</view>
+<view class='flex'>
+  <view class="icons">2</view>
+  <view>找管理员申请入群</view>
+</view>

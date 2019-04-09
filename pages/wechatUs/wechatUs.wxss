@@ -1,0 +1,48 @@
+/* pages/wechatUs/wechatUs.wxss */
+page{
+  padding: 20rpx;
+  width: auto;
+}
+.flex{
+  color: #2B7CEB;
+  font-size: 44rpx;
+  font-weight: 600;
+  align-items: center;
+  /* line-height: 60rpx; */
+  margin-bottom: 40rpx;
+}
+.flex .icons{
+  width: 60rpx;
+  height:60rpx;
+  color: #fff;
+  background-color: #2B7CEB;
+  border-radius: 50%;
+  margin-right: 25rpx;
+  text-align: center;
+  /* line-height: auto; */
+}
+.flex view:last-child{
+  line-height: 80rpx;
+}
+.content{
+  padding-left:10rpx;
+  font-size: 36rpx;
+  line-height: 60rpx;
+  color: #000000;
+}
+.content .test{
+  font-size: 28rpx;
+  color: #777;
+  margin-bottom: 10rpx;
+}
+.content image{
+  display: block;
+  width: 100%;
+  margin: 40rpx 0;
+}
+.content image:last-child{
+  width: 260rpx;
+  height: 260rpx;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+}

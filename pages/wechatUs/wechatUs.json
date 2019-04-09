@@ -1,0 +1,14 @@
+{
+  "component": false,
+  "usingComponents": {
+   
+  },
+  "navigationBarTitleText": "餐饮人交流群",
+  "navigationBarBackgroundColor": "#F7F7F7",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f7f7f7",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

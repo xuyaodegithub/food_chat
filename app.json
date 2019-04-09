@@ -9,7 +9,8 @@
     "pages/food-menu/food-menu",
     "pages/join-info/join-info",
     "pages/brand-enter/brand-enter",
-    "pages/quan-detail/quan-detail"
+    "pages/quan-detail/quan-detail",
+    "pages/wechatUs/wechatUs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +41,14 @@
         "text": "品牌",
         "iconPath": "images/brand.png",
         "selectedIconPath": "images/brand1.png"
+      },
+      {
+        "pagePath": "pages/wechatUs/wechatUs",
+        "text": "交流群",
+        "iconPath": "images/wechat1.png",
+        "selectedIconPath": "images/wechat2.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

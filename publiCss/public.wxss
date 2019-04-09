@@ -1,0 +1,65 @@
+.clear{zoom:1;}
+.clear:after{content:"";clear:both;display:block;}
+.flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.toTop{
+  position: fixed;
+  width: 60rpx;
+  height: 60rpx;
+  bottom: 40rpx;
+  right: 30rpx;
+  z-index: 999;
+}
+.toTop image{
+  width: 100%;
+  height: 100%;
+}
+/*文本溢出 出现省略号*/
+.over{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.delete{text-decoration:line-through;}
+.border_radius{
+  -webkit-border-radius:6rpx;
+  -moz-border-radius:6rpx;
+  -ms-border-radius: 6rpx;
+  -o-border-radius: 6rpx;
+  border-radius:6rpx;
+}
+.over2{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.radius50{
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius:50%;
+}
+.zhezhao{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.5);
+    left: 0;
+    top: 0;
+    z-index: 888;
+  }
+  .backGo{ /*//原始滑动 */
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;  
+  }
+  .over .yuexuan,.over2 .yuexuan{
+  border: 2rpx solid #e5006e;
+  color: #e5006e;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  font-size: 22rpx;
+  padding: 0 6rpx;
+}

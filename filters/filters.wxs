@@ -1,0 +1,13 @@
+//filter过滤器，不可以与js共用！
+// wxs目前似乎并不支持ES6（至少let不能使用）
+// wxs文件不能被js文件引用。wxs文件能引用wxs文件。
+var filters = {
+  //手机号格式化
+  overPhone:function (phone) {
+    let arr = phone.split(' ')
+    arr.splice(3, 4, '****')
+    return arr.join('')
+  }
+}
+
+module.exports = filters
