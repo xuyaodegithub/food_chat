@@ -1,0 +1,25 @@
+<!--pages/attractInvestment/attractDetial/attractDetial.wxml-->
+<!-- <swiper banner={{datialData.detailImages}}></swiper> -->
+<view class="detial">
+    <image src="{{datialData.titleImageUrl}}" mode='widthFix'></image>
+    <view class="title">{{datialData.brandName}}</view>
+    <view class="flex tags">
+        <view wx:for="{{datialData.tags}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+    <view class="flex other">
+        <view wx:for="{{othersMsg}}" wx:key="{{index}}">
+            <view>{{item.msg}}</view>
+            <view class="ac">{{item.title}}</view>
+        </view>
+    </view>
+    <view class="imhMsg">
+      <image wx:for="{{datialData.detailImages}}" wx:key="{{index}}" src="{{item}}" mode="widthFix"></image>
+    </view>
+</view>
+<view class="btn">
+   <button style='background-color:#3277F0;color:white; width:95%;margin:0 auto;border-radius:0;' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-brand="{{brandName}}">申请加盟</button>
+</view>
+<view class="fixed" bindtap='goWechat'>
+    <image src="../../../images/wechatLogo.png"></image>
+    咨询
+</view>

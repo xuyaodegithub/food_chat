@@ -1,0 +1,61 @@
+/* pages/attractInvestment/attractDetial/attractDetial.wxss */
+page{
+  padding: 0 20rpx;
+  width: auto;
+  padding-bottom: 130rpx;
+}
+.title{
+  font-size: 38rpx;
+  /* line-height: 80rpx; */
+  color: #333333;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+}
+.detial image{
+  display: block;
+  width: 100%;
+}
+ .tags{
+  flex-wrap: wrap;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 40rpx;
+  margin-bottom: 50rpx
+}
+ .tags view{
+  background-color: #EBEEF5;
+  margin-right: 10rpx;
+  padding: 0 10rpx;
+  margin-bottom: 10rpx;
+}
+.other{
+  font-size: 34rpx;
+  color: orange;
+}
+.other > view{
+  margin-right: 80rpx;
+}
+.other > view .ac{
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #909399;
+}
+.imhMsg{
+  margin-top: 80rpx;
+}
+.imhMsg image{
+  display: block;
+  width: 100%;
+  /* margin-bottom: 15rpx; */
+}
+.btn{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 20rpx;
+  /* padding: 20rpx; */
+}
+.fixed{
+  bottom: 160rpx;
+}

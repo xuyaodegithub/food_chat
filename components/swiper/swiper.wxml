@@ -1,0 +1,15 @@
+<!--components/swiper.wxml-->
+<view class="allAdvers">
+<view class="swipeds">
+    <swiper indicator-dots autoplay interval="3000" duration="400"  circular indicator-color='#d0cdd1' indicator-active-color='#ffffff'>
+      <block wx:for="{{banner}}" wx:key="{{index}}" data-link="{{item.url}}">
+        <swiper-item>
+          <image src="{{item.image}}" style="display:block;height:100%;width:100%;"  lazy-load data-item="{{item}}" bindtap='goType'/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view wx:for="{{advers}}" wx:key="{{index}}" wx:if="advers.length>0" class="advers">
+    <image src="{{item.image}}" lazy-load mode="widthFix" style="display:block;width:100%;" lazy-load data-item="{{item}}" bindtap='goType'></image>
+  </view>
+  </view>

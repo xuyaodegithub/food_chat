@@ -1,0 +1,21 @@
+<!--pages/attractInvestment/attractList/attractList.wxml-->
+<!-- <swiper banner="{{advers}}"></swiper>   -->
+<view>
+    <view class="title">人气推荐</view>
+    <view class="list">
+        <view wx:for="{{attractList}}" wx:key="{{index}}" data-id="{{item.id}}" class="oneItem" bindtap='goDetial'> 
+        <view class="imgfix">
+          <image src='{{item.titleImageUrl}}' mode='widthFix'></image>
+          <view>{{item.brandName}}</view>
+        </view>
+          <view class="price">￥{{item.feeDescription}}</view>
+          <view class="flex tags">
+            <view wx:for="{{item.tags}}" wx:for-item="itemSon" wx:for-index="indexSon" wx:key="{{indexSon}}">{{itemSon}}              </view>
+          </view>
+        </view> 
+    </view>
+</view>
+<view class="fixed" bindtap='goWechat'>
+  <image src="../../../images/wechatLogo.png"></image>
+  咨询
+</view>

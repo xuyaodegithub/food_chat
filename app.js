@@ -1,6 +1,7 @@
 //app.js
 var config = require('./config.js');
 App({
+  baseUrl: "https://qa.puhuoji.com/foodData",
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

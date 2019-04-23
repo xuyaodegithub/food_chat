@@ -1,0 +1,13 @@
+/* components/swiper.wxss */
+.swipeds image{
+ -webkit-border-radius:8rpx;
+  -moz-border-radius:8rpx;
+  -ms-border-radius: 8rpx;
+  -o-border-radius: 8rpx;
+  border-radius:8rpx;
+  width: 100%;
+}
+.advers{
+  padding: 10rpx 0;
+  /* background-color: #F7F7F7; */
+}

@@ -10,21 +10,15 @@ function fetch(data) {
     url: app.baseUrl+data.url,
     data: data.data,
     dataType: 'json',
-    method: 'POST',
+    method: data.type ? data.type : 'GET',
     header: {
       'content-type': 'application/x-www-form-urlencoded',
+      'token': app.token
       // 'cookie': wx.getStorageSync("sessionid")//读取cookie
     },
     success: function (res) {
-      if (res.data.code == 0) {
-        data.callback(res)
-      } else {
-        wx.showToast({
-          title: res.data.message,
-          icon: 'none',
-          duration: 2000
-        });
-      }
+      if (res.data.code == 0)  data.callback(res)
+      else wx.showToast({title: res.data.msg,icon: 'none'});
     },
     fail:function(res){
       wx.showToast({

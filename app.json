@@ -10,7 +10,9 @@
     "pages/join-info/join-info",
     "pages/brand-enter/brand-enter",
     "pages/quan-detail/quan-detail",
-    "pages/wechatUs/wechatUs"
+    "pages/attractInvestment/wechatUs/wechatUs",
+    "pages/attractInvestment/attractList/attractList",
+    "pages/attractInvestment/attractDetial/attractDetial"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -43,10 +45,10 @@
         "selectedIconPath": "images/brand1.png"
       },
       {
-        "pagePath": "pages/wechatUs/wechatUs",
-        "text": "交流群",
-        "iconPath": "images/wechat1.png",
-        "selectedIconPath": "images/wechat2.png"
+        "pagePath": "pages/attractInvestment/attractList/attractList",
+        "text": "招商",
+        "iconPath": "images/attrct.png",
+        "selectedIconPath": "images/attrctS.png"
       }
     ]
   },

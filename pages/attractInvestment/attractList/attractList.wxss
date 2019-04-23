@@ -1,0 +1,56 @@
+/* pages/attractInvestment/attractList/attractList.wxss */
+page{
+  padding: 0 20rpx;
+  width: auto;
+}
+.title{
+  font-size: 34rpx;
+  /* line-height: 80rpx; */
+  color: #333333;
+  margin-top: 40rpx;
+  font-weight: 600;
+}
+.list  image{
+  display: block;
+  width: 100%;
+  /* margin-bottom: 15rpx; */
+}
+.list .imgfix{
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.list .imgfix view{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+  color: #ffffff; 
+  /* padding: 20px; */
+  line-height: 80rpx;
+  text-indent: 1em;
+}
+.list .price{
+  font-size: 34rpx;
+  line-height: 70rpx;
+  color: orange;
+  font-weight: 600;
+  margin-top: 15rpx
+}
+.list .tags{
+  flex-wrap: wrap;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 40rpx;
+}
+.list .tags view{
+  background-color: #EBEEF5;
+  margin-right: 10rpx;
+  padding: 0 10rpx;
+  margin-bottom: 10rpx;
+}
+.list .oneItem{
+  padding:30rpx 0;
+  border-bottom: 1px solid #EBEEF5;
+}

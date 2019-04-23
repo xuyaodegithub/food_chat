@@ -68,7 +68,7 @@ Page({
           // console.log('用户点击确定')
               //  console.log(res);
           wx.getImageInfo({////////////////////////
-            src: '../../images/first.jpg',
+            src: '../../../images/first.jpg',
             success(res) {
               wx.saveImageToPhotosAlbum({
                 filePath: res.path,
