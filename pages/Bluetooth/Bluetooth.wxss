@@ -1,0 +1,16 @@
+/* pages/Bluetooth/Bluetooth.wxss */
+view{
+  font-size: 28rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+input{
+  border: 1px solid red;
+  padding: 10rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
+.ql-container{
+  height: 200rpx;
+  width: 100%;
+}

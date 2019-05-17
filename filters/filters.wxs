@@ -4,7 +4,7 @@
 var filters = {
   //手机号格式化
   overPhone:function (phone) {
-    let arr = phone.split(' ')
+    var arr = phone.split('')
     arr.splice(3, 4, '****')
     return arr.join('')
   }

@@ -1,0 +1,21 @@
+/* pages/store/paySuccess/index.wxss */
+image{
+  display: block;
+  width: 580rpx;
+  height: 265rpx;
+  margin: 0 auto;
+  margin-top: 180rpx;
+}
+.flex{
+  padding: 82rpx 70rpx;
+  font-size: 34rpx;
+  justify-content: space-between;
+  line-height: 90rpx;
+  text-align: center;
+  color: #333;
+}
+.flex view{
+  padding: 0 70rpx;
+  border: 1px solid #d9d9d9;
+  border-radius: 15rpx;
+}

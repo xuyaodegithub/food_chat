@@ -1,0 +1,149 @@
+/* pages/store/detail/index.wxss */
+page{
+  padding: 0 20rpx;
+  width: auto;
+}
+.title{
+  font-size: 36rpx;
+  color: #333;
+  padding: 15px 0;
+}
+.price{
+  font-size: 36rpx;
+  color: #e55d23;
+  padding: 5rpx 0 30rpx 0;
+}
+.fulltag{
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #a5a5a5;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eeeeee;
+}
+.buyNum{
+  background-color:#ffffff;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 28rpx;
+  line-height: 66rpx;
+  align-items: center;
+  padding-bottom: 20rpx;
+}
+.buyNum .left{
+  margin-right: 50rpx;
+}
+.buyNum .flex{
+  align-items: center;
+  border: 1px solid #9a9a9a;
+  border-radius: 10rpx;
+  font-size: 36rpx
+}
+.buyNum .flex .add{
+ width: 60rpx;
+ text-align: center;
+}
+.buyNum .flex input{
+  text-align: center;
+  height: 66rpx;
+  width: 120rpx;
+  font-size: 28rpx;
+  border-right: 1px solid #9a9a9a;
+  border-left: 1px solid #9a9a9a
+}
+.fixedP{
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  /* left: 50%; */
+  width: 100%;
+  /* font-size: 34rpx;
+  text-align: center;
+  color: #ffffff;
+  line-height: 90rpx; */
+}
+.buybtn{
+  font-size: 34rpx;
+  text-align: center;
+  color: #ffffff;
+  line-height: 90rpx;
+  width: 95%;
+  margin:0 auto;
+  background-color: #3277f0;
+  border-radius: 10rpx
+}
+.sloat{
+height: 30rpx;
+/* background-color: rgba(0, 0, 0, 0.7) */
+visibility: hidden
+}
+.top{
+  background-color: #ffffff;
+  position: relative;
+  padding:20rpx 30rpx 30rpx 30rpx;
+  font-size: 42rpx;
+  color: #333;
+  line-height: 60rpx;
+  border-bottom: 1px solid #9a9a9a;
+}
+.top .posi{
+  position: absolute;
+  right: 20rpx;
+  top: 10rpx;
+}
+.top image{
+  margin-top: -50rpx;
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 40rpx;
+}
+.top .price2{
+  color: #e55d23;
+  margin-bottom: 20rpx;
+}
+.top .store{
+  font-size: 28rpx;
+  color: #a5a5a5
+}
+.nallmess{
+  padding:30rpx 30rpx 10rpx 30rpx;
+  color: #333;
+}
+.oneNall{
+  margin-bottom: 20rpx;
+}
+.nallmess .naTitle{
+  font-size: 32rpx;
+  line-height: 60rpx;
+  margin-bottom: 10rpx;
+}
+.nallmess .flex{
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+}
+.nallmess .flex view{
+  padding: 6rpx 15rpx;
+  border: 1px solid #a5a5a5;
+  text-align: center;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+}
+.nallmess .flex .active{
+  color:#F23F8A;
+  border-color: #F23F8A;
+}
+.content{
+  background-color:#ffffff;
+  max-height: 600rpx;
+  overflow-y:auto; 
+}
+.celectBtn{
+  width: 95%;
+  margin: 0 auto;
+  background-color: #F23F8A;
+}
+.buttonBtn{
+  padding: 20rpx 0;
+  background-color: #ffffff;
+}

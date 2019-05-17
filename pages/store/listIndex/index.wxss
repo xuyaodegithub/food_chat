@@ -1,0 +1,51 @@
+/* pages/store/listIndex/index.wxss */
+page,.pageTop{
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.left,.right{
+  height: 100%;
+}
+.left{
+  width: 25%;
+  background-color: #f3f3f3;
+  font-size: 24rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #9d9d9d;
+}
+.left .active{
+  background-color: #ffffff;
+  color: #333;
+}
+.right{
+  text-align: left;
+  flex: 1;
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #333;
+  padding-left: 20rpx ;
+  background-color: #ffffff;
+}
+.right image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+}
+.right .flex{
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f3f3f3
+}
+.right .flex view{
+  padding: 0 20rpx;
+  width: 320rpx
+}
+.right .flex view .num{
+  margin-bottom: 20rpx;
+  color: #adadad;
+}
+.right .flex view .price{
+  color: #e86b4b;
+  font-size: 32rpx;
+}

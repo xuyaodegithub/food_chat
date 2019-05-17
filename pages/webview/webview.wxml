@@ -1,2 +1,2 @@
 <!--pages/webview/webview.wxml-->
-<web-view src="https://qa.puhuoji.com/foodMap/v2/index.html?v=5"></web-view>
+<web-view src="https://qa.puhuoji.com/foodMap/v3/index.html?v=5"></web-view>

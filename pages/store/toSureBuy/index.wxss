@@ -1,0 +1,139 @@
+/* pages/store/toSureBuy/index.wxss */
+page{
+  padding: 30rpx;
+  background-color: #f7f5f6;
+  width: auto;
+}
+.adress{
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
+.adress .left{
+  width: 65%;
+}
+.adress .userName{
+  margin-bottom: 25rpx;
+}
+.adress .userName text{
+   font-size: 32rpx;
+  color: #333333;
+}
+.adress .userAdree{
+  font-size: 28rpx;
+  line-height: 38rpx;
+  color: #afafaf;
+}
+.buyNum{
+  background-color:#ffffff;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 28rpx;
+  line-height: 66rpx;
+  align-items: center;
+  padding-bottom: 36rpx;
+  padding-top: 12rpx;
+  justify-content: space-between;
+}
+.buyNum .left{
+  margin-right: 50rpx;
+}
+.buyNum .flex{
+  align-items: center;
+  border: 1px solid #9a9a9a;
+  border-radius: 10rpx;
+  font-size: 36rpx
+}
+.buyNum .flex .add{
+ width: 60rpx;
+ text-align: center;
+}
+.buyNum .flex input{
+  text-align: center;
+  height: 66rpx;
+  width: 120rpx;
+  font-size: 28rpx;
+  border-right: 1px solid #9a9a9a;
+  border-left: 1px solid #9a9a9a
+}
+.pro-mess{
+  background-color: #ffffff;
+  padding: 30rpx;
+  font-size: 32rpx;
+  line-height: 52rpx;
+}
+.pro-mess image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 15rpx;
+  margin-right: 30rpx
+}
+.pro-mess .clu{
+  width: 70%;
+  flex-direction: column;
+  justify-content: space-between
+}
+.pro-mess .price{
+  justify-content: space-between
+}
+.pro-mess .price text{
+  font-size: 36rpx;
+  color: #e55d23
+}
+.pro-mess .price text:last-child{
+  font-size: 20rpx;
+  color: #999999
+}
+.shop-type{
+  background-color: #ffffff;
+  font-size: 28rpx;
+  color: #333333;
+  padding: 40rpx 30rpx;
+  justify-content: space-between;
+}
+.shop-type view:last-child{
+  font-size: 24rpx;
+}
+.all-mess{
+  margin-top: 30rpx;
+ border-radius: 20rpx;
+ overflow: hidden;
+ margin-bottom: 24rpx;
+}
+.pay-type{
+  background-color: #ffffff;
+  padding: 40rpx 50rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20rpx;
+}
+.pay-type text{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.pay-type .flex{
+  align-items: center;
+}
+.sumber{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  justify-content: space-between
+}
+.sumber .price{
+  color: #e47041;
+  margin-left: 35rpx;
+}
+.sumber .sub-btn{
+  width: 35%;
+  color: #ffffff;
+  background-color: #3277f0;
+  text-align: center;
+}

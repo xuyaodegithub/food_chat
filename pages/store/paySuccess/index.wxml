@@ -1,0 +1,7 @@
+<!--支付成功-->
+<!-- <text>pages/store/paySuccess/index.wxml</text> -->
+<image src="../../../images/success.png"></image>
+<view class="flex">
+  <view bindtap='goStore'>继续购物</view>
+  <view bindtap='checkDd'>查看订单</view>
+</view>

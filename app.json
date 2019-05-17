@@ -12,7 +12,13 @@
     "pages/quan-detail/quan-detail",
     "pages/attractInvestment/wechatUs/wechatUs",
     "pages/attractInvestment/attractList/attractList",
-    "pages/attractInvestment/attractDetial/attractDetial"
+    "pages/attractInvestment/attractDetial/attractDetial",
+    "pages/Bluetooth/Bluetooth",
+    "pages/store/listIndex/index",
+    "pages/store/detail/index",
+    "pages/store/toSureBuy/index",
+    "pages/store/paySuccess/index",
+    "pages/store/orderList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -45,12 +51,15 @@
         "selectedIconPath": "images/brand1.png"
       },
       {
-        "pagePath": "pages/attractInvestment/attractList/attractList",
-        "text": "招商",
+        "pagePath": "pages/store/listIndex/index",
+        "text": "商店",
         "iconPath": "images/attrct.png",
         "selectedIconPath": "images/attrctS.png"
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wxdb0507db667d1521"
+  ]
 }

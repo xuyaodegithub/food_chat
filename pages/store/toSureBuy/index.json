@@ -1,0 +1,15 @@
+{
+  "component": false,
+  "usingComponents": {
+    "van-icon": "../../../vant/icon/index",
+    "van-submit-bar": "../../../vant/submit-bar/index"
+  },
+  "navigationBarTitleText": "确认订单",
+  "navigationBarBackgroundColor": "#F7F7F7",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f7f7f7",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}

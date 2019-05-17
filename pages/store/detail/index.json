@@ -1,0 +1,16 @@
+{
+  "component": false,
+  "usingComponents": {
+    "swipers": "../../../components/swiper/swiper",
+    "van-popup": "../../../vant/popup/index",
+    "van-icon": "../../../vant/icon/index"
+  },
+  "navigationBarTitleText": "商品详情",
+  "navigationBarBackgroundColor": "#F7F7F7",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f7f7f7",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "disableScroll": false
+}
