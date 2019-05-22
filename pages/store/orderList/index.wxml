@@ -1,2 +1,11 @@
 <!--我的订单-->
-<text>我的订单</text>
+<van-tabs v-model="active" bind:click="onChange" swipeable sticky>
+  <van-tab title="全部">
+  </van-tab>
+  <van-tab title="待付款"></van-tab>
+  <van-tab title="待发货"></van-tab>
+  <van-tab title="待收货"></van-tab>
+  <van-tab title="已完成"></van-tab>
+</van-tabs>
+    <order-card dataList="{{proMess}}"></order-card>
+    <view wx:if="{{proMess.length<1}}" class="noMess">暂无数据</view>

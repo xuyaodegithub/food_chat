@@ -1,0 +1,19 @@
+<!--pages/store/logisticsInformation/index.wxml-->
+<!-- 查看物流 -->
+<view class='mess flex'>
+    <image src='{{mess.img}}'></image>
+    <view class="right">
+      <view>订单编号：{{mess.number}}</view>
+      <view>物流公司：{{mess.company}}</view>
+      <view>官方电话：{{mess.phone}}</view>
+    </view>
+</view>
+<view class="info">
+  <van-steps
+    steps="{{ steps }}"
+    active="{{ active }}"
+    direction="vertical"
+    active-color="#25ae5e"
+  />
+</view>
+

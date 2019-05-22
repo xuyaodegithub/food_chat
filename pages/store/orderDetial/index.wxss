@@ -1,0 +1,92 @@
+/* pages/store/orderDetial/index.wxss */
+.orderTop{
+  padding: 65rpx 190rpx 42rpx;
+  font-size: 42rpx;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.orderTop .flex{
+  justify-content: center;
+  align-items: center;
+}
+.orderTop .btn{
+  font-size: 26rpx;
+  color: #205bc1;
+  line-height: 68rpx;
+  border: 1px solid #205bc1;
+  border-radius: 15rpx;
+  margin-top: 50rpx;
+}
+.psx-mess{
+  padding: 45rpx 28rpx;
+  font-size: 32rpx;
+  color: #333333;
+  border-bottom: 1px solid #eeeeee;
+}
+.psx-mess view:first-child{
+ margin-bottom: 38rpx; 
+ font-size: 26rpx;
+}
+.psx-mess view:nth-child(2) text{
+  margin-left: 45rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.psx-mess view:last-child{
+ margin-top: 24rpx;
+ color: #a9a9a9;
+ font-size: 26rpx;
+}
+.pro-mess{
+  background-color: #ffffff;
+  padding: 30rpx;
+  font-size: 32rpx;
+  line-height: 52rpx;
+}
+.pro-mess image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 15rpx;
+  margin-right: 30rpx
+}
+.pro-mess .clu{
+  width: 70%;
+  flex-direction: column;
+  justify-content: space-between
+}
+.pro-mess .price{
+  justify-content: space-between
+}
+.pro-mess .price text{
+  font-size: 36rpx;
+  color: #e55d23
+}
+.pro-mess .price text:last-child{
+  font-size: 20rpx;
+  color: #999999
+}
+ .surePay{
+  font-size: 34rpx;
+  color: #333;
+  line-height: 115rpx;
+  border-bottom: 1px solid #f3f3f3;
+  border-top: 1px solid #f3f3f3;
+  text-align: right;
+  padding: 0 20rpx;
+}
+.dd-mess{
+  font-size: 24rpx;
+  color: #a7a7a7;
+  padding: 48rpx 30rpx;
+}
+.dd-mess > view:first-child{
+  font-size: 28rpx;
+  color: #333;
+}
+.dd-mess view{
+  margin-bottom: 30rpx;
+}
+.pd-mess > view:first-child{
+  font-size: 26rpx;
+  padding: 42rpx 30rpx 0;
+}

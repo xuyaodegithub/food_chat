@@ -1,25 +1,31 @@
 <!--确认订单页-->
 <wxs src="../../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
-<view class="adress flex">
+<view class="adress flex" bindtap='choseAdress'>
     <view class="left">
-        <view class="userName">
-          <text style="margin-right:45rpx;">{{adressMess.name}}</text>
-          <text>{{filters.overPhone(adressMess.phone)}}</text>
-        </view>
-        <view class="userAdree">
-          {{adressMess.mess}}
+        <view wx:if="{{!adressMess.receiverName}}" class="noadress">暂无收货地址，请先添加地址</view>
+        <view wx:else>
+          <view class="userName">
+            <text style="margin-right:45rpx;">{{adressMess.receiverName}}</text>
+            <text>{{filters.overPhone(adressMess.receiverMobile)}}</text>
+          </view>
+          <view class="userAdree">
+            {{adressMess.receiverProvince}} 
+            {{adressMess.receiverCity}} 
+            {{ adressMess.receiverDistrict}} 
+            {{ adressMess.receiverAddress }}
+          </view>
         </view>
     </view>
     <van-icon name="arrow" color='#afafaf'></van-icon>
 </view>
 <view class="all-mess">
     <view class="pro-mess flex">
-            <image src="{{proMess.img}}"></image>
+            <image src="{{proMess.nomalMess.image}}"></image>
             <view class="flex clu">
-              <view class="over name">{{proMess.title}}</view>
+              <view class="over name">{{proMess.procuctName}}</view>
               <view class="price flex">
-                <text>￥{{proMess.price}}</text>
-                <text>x{{proMess.num}}</text>
+                <text>￥{{proMess.nomalMess.price}}</text>
+                <text style="font-size:20rpx;">{{proMess.nomalMess.skuKey}} <text style="margin-left:20rpx;font-size:20rpx;"> x {{proMess.num}}</text></text>
               </view>
             </view>
     </view>
@@ -27,13 +33,14 @@
               <view class="left">购买数量</view>
               <view class="flex">
                   <view class="add" bindtap='chengnum' data-type="1">-</view>
-                  <input type="number" value="{{buyNum}}" bindinput='inputChange'></input>
+                  <input type="number" value="{{proMess.num}}" bindinput='inputChange'></input>
                   <view class="add" bindtap='chengnum' data-type="2">+</view>
               </view>
       </view>
       <view class="flex shop-type">
           <view>配送方式</view>
-          <view>{{proMess.freeShipping ? '快递免邮' : '邮费20元'}}</view>
+          <!-- <view>{{proMess.freeShipping ? '快递免邮' : '邮费20元'}}</view> -->
+          <view>包邮</view>
       </view>
 </view>
 <view class="pay-type flex">

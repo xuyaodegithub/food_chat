@@ -1,0 +1,28 @@
+<!--components/orderCard/index.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
+<view class="order">
+  <view wx:for="{{dataList}}" wx:key="{{index}}" class="oneMess">
+      <view class="flex timer">
+          <view>{{filters.timefomat(item.createdAt)}}</view>
+          <view>{{filters.orderStatus(item.state)}}</view>
+      </view>
+      <view class="pro-mess flex" bindtap='goorderDetial' data-orderid="{{item.orderId}}">
+                <image src="{{item.subProductOrders[0].picPath}}"></image>
+                <view class="flex clu">
+                    <view class="over name">{{item.subProductOrders[0].productTitle}}</view>
+                    <view class="price flex">
+                      <text>￥{{item.subProductOrders[0].virtualPrice}}</text>
+                       <text style="font-size:20rpx;">{{item.subProductOrders[0].saleProp}} <text style="margin-left:20rpx;font-size:20rpx;"> x {{item.subProductOrders[0].num}}</text></text>
+                    </view>
+                </view>
+      </view>
+      <view class="surePay">实付款￥{{item.subProductOrders[0].actualPayment}}</view>
+      <view class="flex btn">
+        <view wx:if="{{item.state==0}}" data-item="{{item}}">取消订单</view>
+        <view wx:if="{{item.state==0}}" class="diff" data-orderid="{{item.orderId}}" bindtap='payment'>立即付款</view>
+        <view wx:if="{{item.state==2}}" bindtap='watchMess' data-item="{{item}}">查看物流</view>
+        <view wx:if="{{item.state==2}}" bindtap='watchMess' data-item="{{item}}">确认收货</view>
+        <view wx:if="{{item.state==3}}" class="diff" data-item="{{item}}">再来一单</view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+/* pages/store/logisticsInformation/index.wxss */
+.mess{
+  padding:34rpx 32rpx;
+  border-bottom: 1px solid #eeeeee;
+}
+.mess image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+.mess .right{
+  flex: 1;
+  font-size: 28rpx;
+  color: #aaaaaa;
+}
+.mess .right view:nth-child(2){
+  padding:26rpx 0; 
+}
+.mess .right view:first-child{
+  color: #333;
+}
+page .van-step--vertical .van-step__active {
+  font-size: 28rpx
+}
+.info{
+  padding: 30rpx;
+}

@@ -1,0 +1,43 @@
+<!--pages/store/orderDetial/index.wxml-->
+<wxs src="../../../filters/filters.wxs" module="filters" /><!--引入过滤器-->
+<view class="orderTop">
+  <view class="flex">
+    <van-icon name="balance-list" size="58rpx" style="color:#95bbec;margin-top:20rpx;margin-right:15rpx;"></van-icon>
+    订单{{filters.orderStatus(orderMess.state)}}
+  </view>
+  <view class="btn" bindtap='doSomething'>{{filters.orderBtn(orderMess.state)}}</view>
+</view>
+<view class="psx-mess">
+      <view>配送信息</view>
+      <view>
+        {{userMess.name}}
+        <text>{{filters.overPhone(userMess.phone)}}</text>
+      </view>
+      <view>
+        {{userMess.adress}}
+      </view>
+</view>
+<view class="pd-mess">
+      <view>商品信息</view>
+           <view class="pro-mess flex" data-item="{{item}}">
+                <image src="{{orderMess.subProductOrders[0].picPath}}"></image>
+                <view class="flex clu">
+                    <view class="over name">{{orderMess.subProductOrders[0].productTitle}}</view>
+                    <view class="price flex">
+                      <text>￥{{orderMess.subProductOrders[0].virtualPrice}}</text>
+                      <!-- <text>x{{orderMess.subProductOrders[0].num}}</text> -->
+                      <text style="font-size:20rpx;">{{orderMess.subProductOrders[0].saleProp}} <text style="margin-left:20rpx;font-size:20rpx;"> x {{orderMess.subProductOrders[0].num}}</text></text>
+                    </view>
+                </view>
+      </view>
+      <view class="surePay">实付款￥{{orderMess.subProductOrders[0].actualPayment}}</view>
+</view>
+<view class="dd-mess">
+  <view>订单信息</view>
+  <view>订单编号：{{orderM0ess.numbe}}</view>
+  <view>支付方式：{{orderM0ess.payType}}</view>
+  <view>下单时间：{{filters.timefomat(orderMess.createdAt)}}</view>
+  <view>发货快递：{{orderM0ess.kd}}</view>
+  <view>发货时间：{{orderM0ess.time}}</view>
+  <view>快递单号：{{orderM0ess.kdnumebr}}</view>
+</view>

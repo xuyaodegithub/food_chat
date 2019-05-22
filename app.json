@@ -18,7 +18,11 @@
     "pages/store/detail/index",
     "pages/store/toSureBuy/index",
     "pages/store/paySuccess/index",
-    "pages/store/orderList/index"
+    "pages/store/orderList/index",
+    "pages/store/orderDetial/index",
+    "pages/store/logisticsInformation/index",
+    "pages/store/adress-list/index",
+    "pages/store/addNewAdress/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

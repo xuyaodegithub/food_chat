@@ -1,0 +1,53 @@
+/* pages/store/adress-list/index.wxss */
+page{
+  padding-bottom: 120rpx;
+}
+.list{
+  padding:35rpx 40rpx;
+  font-size: 30rpx;
+  color: #333;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.list > view:first-child{
+  width: 65%;
+}
+.list > view:first-child text{
+  font-size: 30rpx;
+  color: #333;
+}
+.list > view:first-child .sname{
+  margin-bottom: 15rpx;
+}
+.list > view:first-child .detailInfo{
+  font-size: 26rpx;
+  color: #9b9b9b;
+  line-height: 36rpx;
+}
+.list .right{
+  width: 90rpx;
+  text-align: right;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #9b9b9b;
+  border-left: 1px solid #eeeeee;
+}
+.btninfo {
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 20rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+  width: 100%;
+}
+.btninfo .van-button--default {
+  background-color: #09c403;
+  color: #ffffff;
+  border-radius: 10rpx;
+}
+.btninfo .Tbtn .van-button--default{
+  background-color: #1958c9;
+  margin-left: 30rpx;
+}

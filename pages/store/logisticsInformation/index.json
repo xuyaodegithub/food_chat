@@ -1,11 +1,9 @@
 {
   "component": false,
   "usingComponents": {
-    "van-tab": "../../../vant/tab/index",
-    "van-tabs": "../../../vant/tabs/index",
-    "order-card":"../../../components/orderCard/index"
+    "van-steps": "../../../vant/steps/index"
   },
-  "navigationBarTitleText": "我的订单",
+  "navigationBarTitleText": "物流信息",
   "navigationBarBackgroundColor": "#F7F7F7",
   "navigationBarTextStyle": "black",
   "backgroundColor": "#f7f7f7",

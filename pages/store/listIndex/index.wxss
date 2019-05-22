@@ -49,3 +49,22 @@ page,.pageTop{
   color: #e86b4b;
   font-size: 32rpx;
 }
+.fixByn{
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  bottom: 60rpx;
+  right: 60rpx;
+  justify-content: center;
+  background-color:#ffffff;
+  border: 1px solid #eeeeee;
+}
+.lastView{
+  font-size: 24rpx;
+  color: #999999;
+  padding: 10rpx;
+  text-align: center;
+}

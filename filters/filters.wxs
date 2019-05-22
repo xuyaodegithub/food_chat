@@ -7,7 +7,52 @@ var filters = {
     var arr = phone.split('')
     arr.splice(3, 4, '****')
     return arr.join('')
-  }
+  },
+  //订单状态过滤器
+  orderStatus:function(type){
+      if(type==0) return '待付款'
+      else if (type == 1) return '待发货'
+      else if (type == 2) return '待收货'
+      else if (type==3) return '已完成'
+  },
+  //订单详情按钮
+  orderBtn: function (type) {
+    if (type == 0) return '立即付款'
+    else if (type == 1) return '随便逛逛'
+    else if (type == 2) return '查看物流'
+    else if (type == 3) return '再来一单'
+  },
+  //时间转换
+  timefomat:function(val) {
+    var data = getDate(val)//wxs中不支持new操作符
+      var year = data.getFullYear()
+      var month = data.getMonth() + 1
+      var day = data.getDate()
+      var hour = data.getHours()
+      var min = data.getMinutes()
+      var sec = data.getSeconds()
+      if (month.length < 2) {
+        month = '0' + month
+      }
+      //console.log(year+'-'+month+'-'+day+' '+hour+':'+min+':'+sec)
+      // return year+'-'+month+'-'+day+' '+hour+':'+min+':'+sec
+      if (month < 10) {
+        month = '0' + month
+      }
+      if (day < 10) {
+        day = '0' + day
+      }
+      if (hour < 10) {
+        hour = '0' + hour
+      }
+      if (min < 10) {
+        min = '0' + min
+      }
+      if (sec < 10) {
+        sec = '0' + sec
+      }
+        return year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec
+  },
 }
 
 module.exports = filters

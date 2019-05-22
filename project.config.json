@@ -139,7 +139,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 16,
 					"name": "商店",
 					"pathName": "pages/store/listIndex/index",
 					"query": "",

@@ -12,7 +12,7 @@ function fetch(data) {
     dataType: 'json',
     method: data.type ? data.type : 'GET',
     header: {
-      'content-type': 'application/x-www-form-urlencoded',
+      'content-type': 'application/json',
       'token': app.token
       // 'cookie': wx.getStorageSync("sessionid")//读取cookie
     },

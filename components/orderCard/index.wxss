@@ -1,0 +1,78 @@
+/* components/orderCard/index.wxss */
+@import  "../../publiCss/public.wxss";
+.oneMess{
+  margin-bottom: 24rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  padding: 35rpx 15rpx 0 15rpx;
+}
+.order{
+  background-color: #f7f5f6;
+  padding: 30rpx;
+}
+.order .timer{
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #e96e32;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #f3f3f3;
+  text-indent: 10rpx;
+}
+.order .timer view:first-child{
+  color: #9d9d9d;
+}
+.order .surePay{
+  font-size: 34rpx;
+  color: #333;
+  line-height: 115rpx;
+  border-bottom: 1px solid #f3f3f3;
+  border-top: 1px solid #f3f3f3;
+  text-align: right;
+  padding: 0 20rpx;
+}
+.pro-mess{
+  background-color: #ffffff;
+  padding: 30rpx;
+  font-size: 32rpx;
+  line-height: 52rpx;
+}
+.pro-mess image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 15rpx;
+  margin-right: 30rpx
+}
+.pro-mess .clu{
+  width: 70%;
+  flex-direction: column;
+  justify-content: space-between
+}
+.pro-mess .price{
+  justify-content: space-between
+}
+.pro-mess .price text{
+  font-size: 36rpx;
+  color: #e55d23
+}
+.pro-mess .price text:last-child{
+  font-size: 20rpx;
+  color: #999999
+}
+.order .btn{
+  font-size: 24rpx;
+  color: #3c3c3c;
+  justify-content: flex-end;
+  line-height: 58rpx;
+  padding: 34rpx 20rpx;
+}
+.order .btn view{
+  border: 1px solid #999999;
+  padding: 0 26rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.order .btn .diff{
+  border-color: #e55d23;
+  color: #e55d23;
+  margin-left: 18rpx;
+}

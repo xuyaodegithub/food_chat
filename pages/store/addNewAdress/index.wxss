@@ -1,0 +1,51 @@
+/* pages/store/addNewAdress/index.wxss */
+page{
+  background-color: #ffffff;
+  width: auto;
+  padding: 0 30rpx;
+}
+page .van-cell {
+  border-bottom: 1px solid #efefef;
+}
+.van-cell__title{
+  /* color:  */
+}
+.picker{
+  background-color: #ffffff;
+  padding: 0 30rpx;
+  border-bottom: 2rpx solid #efefef;
+  justify-content: space-between;
+  align-items: center;
+}
+.picker .pickerSize{
+  /* justify-content: space-around; */
+  font-size: 28rpx;
+  line-height: 50rpx;
+  padding: 20rpx 0;
+}
+.section textarea{
+  height: 140rpx;
+  border-bottom: 1px solid #efefef;
+  font-size: 28rpx;
+  color: #80848f;
+  padding: 20rpx 30rpx;
+}
+.checkbox{
+  justify-content: center;
+  font-size: 28rpx;
+  margin: 42rpx 0 56rpx 0;
+}
+.allBtn{
+  font-size: 30rpx;
+  line-height: 90rpx;
+  color: #ffffff;
+  text-align: center;
+}
+.allBtn view{
+  border-radius: 15rpx;
+  background-color: #1958c9;
+}
+.allBtn .bbtn2{
+  background-color: #c1c7d5;
+  margin-top: 30rpx;
+}

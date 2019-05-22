@@ -1,13 +1,18 @@
 <!--商品详情-->
-<swipers banner="{{benners}}"></swipers>
+<swipers banner="{{oneItem.titleImages}}"></swipers>
 <view>
     <view class="title over">{{oneItem.title}}</view>
-    <view class="price">￥{{oneItem.price}}</view>
+    <view class="price">￥{{oneItem.priceDescription}}</view>
     <view class="flex fulltag">
-      <text>{{oneItem.FreeShipping ? '包邮' : '不包邮'}}</text>
-      <text>销量  {{oneItem.SalesVolume}}</text>
-      <text>{{oneItem.place}}</text>
+      <!-- <text>{{oneItem.FreeShipping ? '包邮' : '不包邮'}}</text> -->
+      <text>包邮</text>
+      <text>销量  {{oneItem.totalSale}}</text>
+      <!-- <text>{{oneItem.place}}</text> -->
+      <text>杭州</text>
     </view> 
+     <view class="detailImg">
+        <image wx:for="{{oneItem.bodyImages}}" mode="widthFix" src="{{item}}" wx:key="{{index}}"></image>
+     </view>
 </view>
 <view class="fixedP">
   <view class="buybtn" bindtap='goBuy'>立即购买</view>
@@ -17,19 +22,21 @@
 <view class="sloat"> </view>
     <view class="flex top"> 
         <van-icon name="cross" class="posi" bindtap='closeP'></van-icon>
-          <image src="{{oneItem.img}}"></image>
+          <image src="{{oneItem.bodyImages[0]}}" bindtap='previewImage' wx:if="{{!nomalMess}}"></image>
+          <image src="{{nomalMess.image}}" bindtap='previewImage' wx:else></image>
           <view>
-            <view class="price2">￥{{oneItem.price}}</view>
-            <view class="store">库存{{oneItem.store}}</view>
+            <view class="price2" wx:if="{{!nomalMess}}">￥{{oneItem.priceDescription}}</view>
+            <view class="price2" wx:else>￥{{nomalMess.price}}</view>
+            <view class="store" wx:if="{{nomalMess}}">库存{{nomalMess.stock}}</view>
           </view>
     </view>
     <!-- 规格 -->
     <view class="content">
       <view class="nallmess">
-          <view wx:for="{{nomalMess}}" wx:key="{{index}}" class="oneNall">
-              <view class="naTitle">{{item.title}}</view>
+          <view wx:for="{{nomalList}}" wx:key="{{index}}" class="oneNall">
+              <view class="naTitle">{{item.name}}</view>
               <view class="flex">
-                  <view wx:for="{{item.mess}}" wx:for-item="itemson" wx:for-index="indexson" data-index="{{index}}"  wx:key="{{indexson}}" data-indexson="{{indexson}}"  data-ids="{{itemson.nallid}}" class="{{itemson.selected ? 'active' : ''}}" bindtap='selectNomall'>{{itemson.title}}</view>
+                  <view wx:for="{{item.options}}" wx:for-item="itemson" wx:for-index="indexson" data-index="{{index}}"  wx:key="{{indexson}}" data-indexson="{{indexson}}"  class="{{item.selectindex==indexson ? 'active' : ''}}" bindtap='selectNomall'>{{itemson}}</view>
               </view>
           </view>
       </view>
@@ -38,7 +45,7 @@
           <view class="left">购买数量</view>
           <view class="flex">
               <view class="add" bindtap='chengnum' data-type="1">-</view>
-              <input type="number" value="{{buyNum}}"></input>
+              <input type="number" value="{{buyNum}}" bindinput='inputChange'></input>
               <view class="add" bindtap='chengnum' data-type="2">+</view>
           </view>
       </view>

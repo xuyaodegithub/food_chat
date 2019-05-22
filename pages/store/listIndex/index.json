@@ -1,6 +1,7 @@
 {
   "component": false,
   "usingComponents": {
+    "van-icon": "../../../vant/icon/index"
   },
   "navigationBarTitleText": "商品列表",
   "navigationBarBackgroundColor": "#F7F7F7",
@@ -9,5 +10,5 @@
   "enablePullDownRefresh": false,
   "onReachBottomDistance": 50,
   "backgroundTextStyle": "dark",
-  "disableScroll": false
+  "disableScroll": true
 }

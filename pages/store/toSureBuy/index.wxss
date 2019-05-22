@@ -14,6 +14,10 @@ page{
 .adress .left{
   width: 65%;
 }
+.adress .left .noadress{
+  font-size: 28rpx;
+  color: #afafaf;
+}
 .adress .userName{
   margin-bottom: 25rpx;
 }

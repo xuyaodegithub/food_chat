@@ -1,0 +1,27 @@
+<!--pages/store/adress-list/index.wxml-->
+<!-- <text>pages/store/adress-list/index.wxml</text> -->
+<!-- 地址列表 -->
+<view wx:for="{{adressList}}" wx:key="index" class="flex list" bindtap='choseThis' data-item="{{item}}">
+  <view>
+     <view class="sname">
+    {{item.userName}}
+    <text>{{item.telNumber}}</text>
+    </view>
+    <view class="detailInfo">
+      {{item.detailInfo}}
+    </view>
+  </view>
+  <view class="right" catchtap='updataIt' data-item="{{item}}">
+    编辑
+  </view>
+</view>
+<view class="btninfo flex">
+      <van-button bindtap='useWechatAdress'>
+        <van-icon name="chat"  size="24px" custom-style="vertical-align:middle;" color='#ffffff' ></van-icon>
+        使用微信地址
+      </van-button>
+      <van-button class="Tbtn" bindtap='addNew'>
+        <van-icon name="add-o"  size="24px" custom-style="vertical-align:middle;" color='#ffffff'></van-icon>
+        手动添加地址
+      </van-button>
+</view>

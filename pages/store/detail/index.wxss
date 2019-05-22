@@ -52,7 +52,7 @@ page{
 }
 .fixedP{
   position: fixed;
-  bottom: 30rpx;
+  bottom: 20rpx;
   left: 0;
   /* left: 50%; */
   width: 100%;
@@ -65,7 +65,7 @@ page{
   font-size: 34rpx;
   text-align: center;
   color: #ffffff;
-  line-height: 90rpx;
+  line-height: 100rpx;
   width: 95%;
   margin:0 auto;
   background-color: #3277f0;
@@ -102,7 +102,8 @@ visibility: hidden
 }
 .top .store{
   font-size: 28rpx;
-  color: #a5a5a5
+  color: #a5a5a5;
+  line-height: 40rpx;
 }
 .nallmess{
   padding:30rpx 30rpx 10rpx 30rpx;
@@ -146,4 +147,11 @@ visibility: hidden
 .buttonBtn{
   padding: 20rpx 0;
   background-color: #ffffff;
+}
+.detailImg{
+  padding-bottom: 150rpx;
+}
+.detailImg image{
+  display: block;
+  width: 100%;
 }

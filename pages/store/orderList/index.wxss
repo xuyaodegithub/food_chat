@@ -1,1 +1,13 @@
 /* pages/store/orderList/index.wxss */
+page{
+  background-color: #f7f5f6;
+}
+page .van-tabs__line{
+  background-color: #1657cb;
+}
+.noMess{
+  padding: 80rpx 0;
+  font-size: 32rpx;
+  color: #7d7e80;
+  text-align: center;
+}

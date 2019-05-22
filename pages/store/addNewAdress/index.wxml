@@ -1,0 +1,40 @@
+<!--新增地址l-->
+<van-cell-group>
+  <van-field
+    value="{{ value }}"
+    placeholder="姓名"
+    border="{{ false }}"
+    clearable
+    bind:change="onChangeI"
+  />
+  <van-field
+    value="{{ phone }}"
+    placeholder="手机号码"
+    border="{{ false }}"
+    type="number"
+    clearable
+    bind:change="onChangeI"
+  />
+</van-cell-group>
+<view class="picker flex">
+  <picker bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" mode="region" style="width:90%;">
+   <view class="pickerSize flex">
+    <!-- <text>省市区:</text> -->
+    <text>{{region[0]}}</text> 、
+    <text>{{region[1]}}</text> 、
+    <text>{{region[2]}}</text> 
+    </view> 
+  </picker>
+  <van-icon name="arrow" size="28rpx" color="#bfbfbf"></van-icon>
+</view>
+<view class="section">
+  <textarea bindblur="bindTextAreaBlur"  placeholder="详细地址，如街道、楼牌号等" placeholder-style="color:#80848f;font-size:28rpx;" show-confirm-bar/>
+</view>
+<view class="checkbox flex">
+  <van-checkbox value="{{ checked }}" bind:change="onChange" checked-color="#1958c9">设置为默认地址</van-checkbox>
+</view> 
+<view class="allBtn">
+  <view class="bbtn">保存地址</view>
+  <view class="bbtn2" wx:if="{{id}}" bindtap='deleteItem'>删除地址</view>
+</view>
+<van-dialog id="van-dialog" />

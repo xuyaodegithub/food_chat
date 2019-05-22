@@ -2,6 +2,7 @@
 var config = require('./config.js');
 App({
   baseUrl: "https://qa.puhuoji.com/foodData",
+  token:'',
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -22,6 +23,7 @@ App({
             'content-type': 'application/json' // 默认值
           },
           success(res) {
+            // console.log(res.data.data.token)
             app.token = res.data.data.token;
           }
         })

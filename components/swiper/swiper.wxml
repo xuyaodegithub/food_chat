@@ -4,7 +4,7 @@
     <swiper indicator-dots autoplay interval="3000" duration="400"  circular indicator-color='#d0cdd1' indicator-active-color='#ffffff' style="height:480rpx;">
       <block wx:for="{{banner}}" wx:key="{{index}}" data-link="{{item.url}}">
         <swiper-item>
-          <image src="{{item.image}}" style="display:block;width:100%;"  lazy-load data-item="{{item}}" bindtap='goType'/>
+          <image src="{{item}}" style="display:block;width:100%;"  lazy-load data-item="{{item}}" bindtap='goType'/>
         </swiper-item>
       </block>
     </swiper>

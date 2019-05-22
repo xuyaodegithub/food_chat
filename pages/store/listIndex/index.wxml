@@ -1,16 +1,20 @@
 <!--商品列表-->
 <view class="flex pageTop">
     <scroll-view class="left" scroll-y	>
-          <view wx:for="{{PList}}" wx:key="{{index}}" class="{{classIndex===index ? 'active' : ''}}" bindtap='changeTitle' data-index="{{index}}">{{item.title}}</view>
+          <view wx:for="{{classList}}" wx:key="{{index}}" class="{{className===item ? 'active' : ''}}" bindtap='changeTitle' data-item="{{item}}">{{item}}</view>
     </scroll-view>
-    <scroll-view class="right" scroll-y	>
-        <view wx:for="{{PList[classIndex].List}}" wx:key="{{index}}" class="flex" bindtap='goDetail' data-ids="{{item.di}}">
-            <image src="{{item.img}}"></image>
+    <scroll-view class="right" scroll-y	bindscrolltolower="getMoveProduct">
+        <view wx:for="{{productList}}" wx:key="{{index}}" class="flex" bindtap='goDetail' data-ids="{{item.productId}}">
+            <image src="{{item.titleImages[0]}}"></image>
             <view>
                 <view class="over">{{item.title}}</view>
-                <view class="num">销量{{item.sall}}</view>
-                <view class="price">￥{{item.price}}</view>
+                <view class="num">销量{{item.totalSale}}</view>
+                <view class="price">￥{{item.priceDescription}}</view>
             </view>
         </view>
+        <view class="lastView" wx:if="{{moveTrue}}">我是有底线的~~~</view>
     </scroll-view>
 </view>
+<view class="flex fixByn" bindtap='goorderList'>
+    <van-icon name="label-o" size="30px" style="margin-top:8rpx;" info="">++</van-icon>
+</view> 
