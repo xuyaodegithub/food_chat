@@ -10,6 +10,14 @@ page{
   padding: 30rpx;
   background-color: #ffffff;
   border-radius: 20rpx;
+  position: relative;
+}
+.adress image{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8rpx;
+  left: 0;
 }
 .adress .left{
   width: 65%;

@@ -55,10 +55,16 @@
         "selectedIconPath": "images/brand1.png"
       },
       {
-        "pagePath": "pages/store/listIndex/index",
-        "text": "商店",
+        "pagePath": "pages/attractInvestment/attractList/attractList",
+        "text": "招商",
         "iconPath": "images/attrct.png",
         "selectedIconPath": "images/attrctS.png"
+      },
+      {
+        "pagePath": "pages/store/listIndex/index",
+        "text": "商店",
+        "iconPath": "images/store.png",
+        "selectedIconPath": "images/stores.png"
       }
     ]
   },

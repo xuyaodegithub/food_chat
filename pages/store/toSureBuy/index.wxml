@@ -17,6 +17,7 @@
         </view>
     </view>
     <van-icon name="arrow" color='#afafaf'></van-icon>
+    <image src="../../../images/adress.png"></image>
 </view>
 <view class="all-mess">
     <view class="pro-mess flex">
@@ -33,7 +34,7 @@
               <view class="left">购买数量</view>
               <view class="flex">
                   <view class="add" bindtap='chengnum' data-type="1">-</view>
-                  <input type="number" value="{{proMess.num}}" bindinput='inputChange'></input>
+                  <input type="number" value="{{proMess.num}}" bindinput='inputChange' disabled='{{orderId}}'></input>
                   <view class="add" bindtap='chengnum' data-type="2">+</view>
               </view>
       </view>

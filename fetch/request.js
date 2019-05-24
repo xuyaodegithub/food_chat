@@ -17,6 +17,7 @@ function fetch(data) {
       // 'cookie': wx.getStorageSync("sessionid")//读取cookie
     },
     success: function (res) {
+      // console.log(res.statusCode)
       if (res.data.code == 0)  data.callback(res)
       else wx.showToast({title: res.data.msg,icon: 'none'});
     },

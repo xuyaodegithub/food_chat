@@ -4,7 +4,7 @@
 var filters = {
   //手机号格式化
   overPhone:function (phone) {
-    var arr = phone.split('')
+    var arr = (phone+'').split('')
     arr.splice(3, 4, '****')
     return arr.join('')
   },
@@ -19,7 +19,7 @@ var filters = {
   orderBtn: function (type) {
     if (type == 0) return '立即付款'
     else if (type == 1) return '随便逛逛'
-    else if (type == 2) return '查看物流'
+    else if (type == 2) return '确认收货'
     else if (type == 3) return '再来一单'
   },
   //时间转换

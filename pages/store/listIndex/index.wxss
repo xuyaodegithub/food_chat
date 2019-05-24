@@ -68,3 +68,12 @@ page,.pageTop{
   padding: 10rpx;
   text-align: center;
 }
+.red{
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: red;
+  right: 10rpx;
+  top: 0rpx;
+  border-radius: 50%;
+}

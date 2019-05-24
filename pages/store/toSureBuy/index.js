@@ -26,7 +26,8 @@ Page({
         // num:1,
         // freeShipping:1
         },
-      money:'93.80'
+      money:'93.80',
+      orderId:''
   },
 
   /**
@@ -40,6 +41,7 @@ Page({
 
   },
   chengnum(e) {//+-
+    if (this.data.orderId) return
     let type = e.currentTarget.dataset.type
     let data = this.data.proMess
     if (type == 2) {
@@ -66,6 +68,11 @@ Page({
       wx.showToast({title: '请先完善收货地址信息',icon:'none'})
       return
     }
+    if (this.data.orderId) {
+      this.paymenet(this.data.orderId)
+      return
+      }
+    wx.showLoading({ mask: true })
       let _self = this
       let data={
         url:'/mall/submitProductOrder',
@@ -82,6 +89,8 @@ Page({
           skuKey: this.data.proMess.nomalMess.skuKey
         },
         callback:(res)=>{
+          _self.setData({ orderId: res.data.data})
+          wx.hideLoading()
           _self.paymenet(res.data.data)
         }
       }
@@ -102,7 +111,7 @@ Page({
             paySign: res.data.data.paySign,
             success(res1) {
               // wx.showToast({ title: '支付成功', icon: 'none' })
-              wx.reLaunch({
+              wx.redirectTo({
                 url: '../paySuccess/index'
               })
             },
@@ -246,7 +255,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

@@ -29,6 +29,9 @@ Page({
       page:1,
       stopPost:false
       })
+    wx.pageScrollTo({
+      scrollTop:0,
+    })
     this.getOrderList(1)
   },
   /**
@@ -53,6 +56,14 @@ Page({
       }
     }
     common.fetch(data)
+  },
+  cancalItem(e){
+    // console.log(e.detail)
+    let arr = this.data.proMess
+    arr.splice(e.detail,1)
+    this.setData({
+      proMess: arr
+    })
   },
   /**
    * 生命周期函数--监听页面显示
@@ -94,7 +105,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

@@ -10,11 +10,14 @@
 <view class="psx-mess">
       <view>配送信息</view>
       <view>
-        {{userMess.name}}
-        <text>{{filters.overPhone(userMess.phone)}}</text>
+        {{userMess.receiverName}}
+        <text>{{filters.overPhone(userMess.receiverMobile)}}</text>
       </view>
       <view>
-        {{userMess.adress}}
+        {{userMess.receiverProvince}}
+        {{userMess.receiverCity}}
+        {{userMess.receiverDistrict}}
+        {{userMess.receiverAddress}}
       </view>
 </view>
 <view class="pd-mess">
@@ -34,10 +37,10 @@
 </view>
 <view class="dd-mess">
   <view>订单信息</view>
-  <view>订单编号：{{orderM0ess.numbe}}</view>
-  <view>支付方式：{{orderM0ess.payType}}</view>
+  <view>订单编号：{{orderMess.orderLogisticsDo.orderId}}</view>
+  <view>支付方式：微信支付</view>
   <view>下单时间：{{filters.timefomat(orderMess.createdAt)}}</view>
-  <view>发货快递：{{orderM0ess.kd}}</view>
-  <view>发货时间：{{orderM0ess.time}}</view>
-  <view>快递单号：{{orderM0ess.kdnumebr}}</view>
+  <view>发货快递：{{orderMess.orderLogisticsDo.companyCode}}</view>
+  <view>发货时间：{{filters.timefomat(orderMess.payAt)}}</view>
+  <view>快递单号：{{orderMess.orderLogisticsDo.outSid}}</view>
 </view>

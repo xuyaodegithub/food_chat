@@ -18,11 +18,11 @@
       </view>
       <view class="surePay">实付款￥{{item.subProductOrders[0].actualPayment}}</view>
       <view class="flex btn">
-        <view wx:if="{{item.state==0}}" data-item="{{item}}">取消订单</view>
+        <view wx:if="{{item.state==0}}" data-item="{{item}}" data-index="{{index}}" bindtap='cancalItem'>取消订单</view>
         <view wx:if="{{item.state==0}}" class="diff" data-orderid="{{item.orderId}}" bindtap='payment'>立即付款</view>
-        <view wx:if="{{item.state==2}}" bindtap='watchMess' data-item="{{item}}">查看物流</view>
-        <view wx:if="{{item.state==2}}" bindtap='watchMess' data-item="{{item}}">确认收货</view>
-        <view wx:if="{{item.state==3}}" class="diff" data-item="{{item}}">再来一单</view>
+        <!-- <view wx:if="{{item.state==2}}" bindtap='watchMess' data-item="{{item}}">随便逛逛</view> -->
+        <view wx:if="{{item.state==2}}" bindtap='watchMess' data-item="{{item}}" data-index="{{index}}" class="diff">确认收货</view>
+        <view wx:if="{{item.state==3}}" class="diff" data-item="{{item}}" bindtap='watchMess'>再来一单</view>
       </view>
   </view>
 </view>

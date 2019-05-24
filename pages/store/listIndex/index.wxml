@@ -16,5 +16,6 @@
     </scroll-view>
 </view>
 <view class="flex fixByn" bindtap='goorderList'>
-    <van-icon name="label-o" size="30px" style="margin-top:8rpx;" info="">++</van-icon>
+    <van-icon name="label-o" size="30px" style="margin-top:8rpx;" info=""></van-icon>
+    <view class="red"></view>
 </view> 

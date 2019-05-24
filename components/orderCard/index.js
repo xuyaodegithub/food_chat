@@ -24,9 +24,10 @@ Component({
   methods: {
     watchMess(e){
       let item = e.currentTarget.dataset.item
-      wx.navigateTo({
-        url: '/pages/store/logisticsInformation/index',
-      })
+      let index = e.currentTarget.dataset.index
+      if (item.state == 1) wx.navigateTo({ url: '/pages/store/listIndex/index', })
+      else if (item.state == 2) this.sureGet(item.orderId, index)
+      else wx.navigateTo({ url: `/pages/store/detail/index?id=${item.subProductOrders[0].productId}`, })
     },
     goorderDetial(e) {
       let orderId = e.currentTarget.dataset.orderid
@@ -61,6 +62,58 @@ Component({
         }
       }
       common.fetch(data)
+    },
+    sureGet(id, index){//确认收货
+    let _self=this
+      let data = {
+        url: '/mall/comfirmOrderReceived',
+        data: {
+          orderId: id
+        },
+        callback: (res) => {
+          wx.showToast({ title: '确认成功', icon: 'none' })
+          _self.triggerEvent('myevent', index)
+        }
+      }
+      wx.showModal({
+        title: '提示',
+        content: '商品已签收，确认收货?',
+        confirmColor:'#e96e32',
+        success(res) {
+          if (res.confirm) {
+            common.fetch(data)
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    },
+    cancalItem(e){//取消订单
+      let _self = this
+      let items = e.currentTarget.dataset.item
+      let index = e.currentTarget.dataset.index
+      let data={
+        url:'/mall/cancelOrder',
+        data:{
+          orderId: items.orderId
+        },
+        callback:(res)=>{
+          wx.showToast({ title: '取消成功', icon: 'none' })
+          _self.triggerEvent('myevent', index)
+        }
+      }
+      wx.showModal({
+        title: '提示',
+        content: '确认取消此订单?',
+        confirmColor: '#e96e32',
+        success(res) {
+          if (res.confirm) {
+            common.fetch(data)
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
     }
   }
 })
