@@ -25,7 +25,7 @@ Component({
     watchMess(e){
       let item = e.currentTarget.dataset.item
       let index = e.currentTarget.dataset.index
-      if (item.state == 1) wx.navigateTo({ url: '/pages/store/listIndex/index', })
+      if (item.state == 1) wx.switchTab({ url: '/pages/store/listIndex/index', })
       else if (item.state == 2) this.sureGet(item.orderId, index)
       else wx.navigateTo({ url: `/pages/store/detail/index?id=${item.subProductOrders[0].productId}`, })
     },

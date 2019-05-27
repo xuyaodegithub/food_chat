@@ -22,7 +22,7 @@
 <view class="sloat"> </view>
     <view class="flex top"> 
         <van-icon name="cross" class="posi" bindtap='closeP'></van-icon>
-          <image src="{{oneItem.bodyImages[0]}}" bindtap='previewImage' wx:if="{{!nomalMess}}"></image>
+          <image src="{{oneItem.bodyImages[0]}}" wx:if="{{!nomalMess}}"></image>
           <image src="{{nomalMess.image}}" bindtap='previewImage' wx:else></image>
           <view>
             <view class="price2" wx:if="{{!nomalMess}}">￥{{oneItem.priceDescription}}</view>

@@ -40,7 +40,7 @@
   <view>订单编号：{{orderMess.orderLogisticsDo.orderId}}</view>
   <view>支付方式：微信支付</view>
   <view>下单时间：{{filters.timefomat(orderMess.createdAt)}}</view>
-  <view>发货快递：{{orderMess.orderLogisticsDo.companyCode}}</view>
-  <view>发货时间：{{filters.timefomat(orderMess.payAt)}}</view>
-  <view>快递单号：{{orderMess.orderLogisticsDo.outSid}}</view>
+  <view>发货快递：{{orderMess.state < 2 ? '暂无信息' : orderMess.orderLogisticsDo.companyCode}}</view>
+  <view>发货时间：{{orderMess.state < 2 ? '暂无信息' : filters.timefomat(orderMess.payAt)}}</view>
+  <view>快递单号：{{orderMess.state < 2 ? '暂无信息' : orderMess.orderLogisticsDo.outSid}}</view>
 </view>

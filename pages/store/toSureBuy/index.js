@@ -26,7 +26,7 @@ Page({
         // num:1,
         // freeShipping:1
         },
-      money:'93.80',
+      money:'',
       orderId:''
   },
 
@@ -37,9 +37,15 @@ Page({
     this.getDetailData()
     this.getAdressss()
   },
-  onSubmit(){
-
-  },
+  // observers: {//监听器
+  //   'proMess': function () {
+  //     // 在 numberA 或者 numberB 被设置时，执行这个函数
+  //     console.log(222)
+  //     this.setData({
+  //       money: parseFloat(this.data.proMess.num) * parseFloat(this.data.proMess.price)
+  //     })
+  //   }
+  // },
   chengnum(e) {//+-
     if (this.data.orderId) return
     let type = e.currentTarget.dataset.type
@@ -53,14 +59,18 @@ Page({
       }
       data.num = data.num - 1
     }
-    this.setData({ proMess: data })
+    this.setData({
+      proMess: data, 
+      money: parseFloat(data.num) * parseFloat(data.price)
+       })
   },
   inputChange(e){
     let val = e.detail.value;
     let daya = this.data.proMess
     daya.num = val ? Number(val) : 1
     this.setData({
-      proMess: daya
+      proMess: daya,
+      money: parseFloat(daya.num) * parseFloat(daya.price)
     })
   },
   payMemoy(){//提交订单
@@ -193,9 +203,10 @@ Page({
   },
   getDetailData(){//从storerage中取出存储的信息
     let data = wx.getStorageSync('saveData')
-    console.log(data)
+    // console.log(data)
     this.setData({
       proMess: data,
+      money: parseFloat(data.num) * parseFloat(data.price)
     })
     // console.log(data)
   },

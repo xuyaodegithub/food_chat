@@ -44,16 +44,22 @@ Page({
     this.setData({ showPopup: false })
   },
   closePopu(){
-    let arr = this.data.nomalList
-    let select = arr.every((item,key)=>{
-      return item.selected==1
-    })
+    let arr = this.data.nomalList, select
+    if (arr.length>0){
+       select = arr.every((item, key) => {
+        return item.selected == 1
+      })
+    }else{
+      select=true
+    }
+    
     if (select){
       let saveData={
         procuctName: this.data.oneItem.title,//产品名称
         procuctId: this.data.oneItem.productId,//产品id
         nomalMess: this.data.nomalMess,//产品sku
-        num: this.data.buyNum//数量
+        num: this.data.buyNum,//数量  
+        price: this.data.nomalList.length > 0 ? this.data.nomalMess.price : this.data.oneItem.price
       }
       wx.setStorageSync('saveData', saveData)
       wx.navigateTo({
@@ -78,7 +84,7 @@ Page({
           str.push(val.options[val.selectindex]) 
         })
        this.data.namalDetial.map((val,index)=>{
-         console.log(str.join(','))
+        //  console.log(str.join(','))
          if (val.skuKey == str.join(',')){
            _self.setData({ nomalMess: val })
          }
@@ -103,8 +109,8 @@ Page({
   },
   previewImage(){
     wx.previewImage({
-      current: this.data.oneItem.img, // 当前显示图片的http链接
-      urls: [this.data.oneItem.img] // 需要预览的图片http链接列表
+      current: this.data.nomalMess.image, // 当前显示图片的http链接
+      urls: [this.data.nomalMess.image] // 需要预览的图片http链接列表
     })
   },
   getDetail(){//获取详情
