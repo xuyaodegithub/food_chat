@@ -29,7 +29,28 @@ Page({
     this.setData({ productId: options.id})
     this.getDetail()
   },
+  goindex(){
+    wx.switchTab({
+      url: '../listIndex/index',
+    })
+  },
   goBuy(){//立即购买
+    let data={
+            currentTarget:{
+              dataset:{
+                index:'',
+                indexson:''
+              }
+            }
+          }
+    let arll = this.data.nomalList
+    arll.map((val,index)=>{
+      if (val.options.length===1){
+        data.currentTarget.dataset.index = index
+        data.currentTarget.dataset.indexson = 0
+        this.selectNomall(data)
+      }
+    })
     this.setData({
       showPopup:true
     })
@@ -86,6 +107,7 @@ Page({
        this.data.namalDetial.map((val,index)=>{
         //  console.log(str.join(','))
          if (val.skuKey == str.join(',')){
+           if (!val.image) val.image = _self.data.oneItem.bodyImages[0]
            _self.setData({ nomalMess: val })
          }
        })
@@ -126,6 +148,10 @@ Page({
           val['selected']=0
           val['selectindex']=-1
         })
+        // if (arr.length == 1 && arr[0].options.length==1){
+        //   arr[0]['selected'] = 1
+        //   arr[0]['selectindex']=0
+        // }
         _self.setData({ 
           oneItem: res.data.data, 
           nomalList: arr,
@@ -180,7 +206,23 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  // onShareAppMessage: function () {
-
-  // }
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮、、menu
+      console.log(ops.target)
+    }
+    return {
+      title: this.data.oneItem.title,
+      path: `/pages/store/detail/index?id=${this.data.oneItem.productId}`,//当前页面 path ，必须是以 / 开头的完整路径
+      imageUrl: this.data.oneItem.titleImages[0],//转发图标
+      success: function (res) {
+        //成功
+        console.log(999)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
+  }
 })

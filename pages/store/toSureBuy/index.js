@@ -74,6 +74,7 @@ Page({
     })
   },
   payMemoy(){//提交订单
+    console.log(this.data.adressMess)
     if (!this.data.adressMess.receiverName || !this.data.adressMess.receiverMobile){
       wx.showToast({title: '请先完善收货地址信息',icon:'none'})
       return
@@ -138,16 +139,17 @@ Page({
     // wx.navigateTo({
     //   url: '../adress-list/index',
     // })
-    wx.getSetting({
+    wx.getSetting({//获取授权信息
       success(res) {
+        console.log(res)
         // 如果没有则获取授权
-        if (!res.authSetting['scope.address']) {
-          wx.authorize({
+        if (!res.authSetting['scope.address']) {//如果授权信息中不包括获取地址
+          wx.authorize({//询问用户授权
             scope: 'scope.address',
-            success() {
+            success() {//用户授权成功后回调
               _self.selectAdress()
             },
-            fail() {
+            fail() {//用户拒绝授权
               wx.showModal({
                 title: '提示',
                 content: '您还未授权使用微信地址',
@@ -171,7 +173,7 @@ Page({
               })
             }
           })
-        } else {
+        } else {//授权信息中包括当前授权
           // 有则直接保存
           _self.selectAdress()
         }
@@ -188,6 +190,7 @@ Page({
           return
         }
         let data = _self.data.adressMess
+        console.log(_self.data.adressMess)
         data.receiverProvince = res.provinceName
         data.receiverCity = res.cityName
         data.receiverDistrict = res.countyName
@@ -203,7 +206,7 @@ Page({
   },
   getDetailData(){//从storerage中取出存储的信息
     let data = wx.getStorageSync('saveData')
-    // console.log(data)
+    console.log(data)
     this.setData({
       proMess: data,
       money: parseFloat(data.num) * parseFloat(data.price)
@@ -216,7 +219,10 @@ Page({
         url:'/mall/defaultAddress',
         data:{ },
         callback:(res)=>{
-          _self.setData({ adressMess:res.data.data})
+          // console.log(res)
+          if (res.data.data){
+            _self.setData({ adressMess: res.data.data })
+          }
         }
       }
     common.fetch(data)

@@ -9,21 +9,27 @@ Page({
   data: {
     classList:[],
     productList:[],
-    className:'',//当前分类name
+    classindex:0,//当前分类name
+    className:'',
     page:1,
     pageSize:10,
     moveTrue:false,//是否关闭触底请求
+    showSJ:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      showSJ:options.showSJ ? true : false
+    })
     this.categoryList()
   },
   changeTitle(e){//改变分类
-    if (this.data.className === e.currentTarget.dataset.item) return
+    if (this.data.classindex === e.currentTarget.dataset.index) return
     this.setData({
+      classindex: e.currentTarget.dataset.index,
       className: e.currentTarget.dataset.item,
       page:1,
       pageSize:10,
@@ -38,6 +44,17 @@ Page({
     })
   },
   goorderList(){//进订单页
+    // wx.scanCode({
+    //   onlyFromCamera: false,//是否只能从相机扫码，不允许从相册选择图片
+    //   scanType: ['barCode', 'qrCode'],
+    //   success(res) {
+    //     console.log(res)
+      
+    //   },
+    //   fail(err) {
+    //     console.log(err) '/pages/Bluetooth/Bluetooth'
+    //   }
+    // })
     wx.navigateTo({
       url: '../orderList/index',
     })
@@ -50,7 +67,8 @@ Page({
               callback:(res)=>{
                 _self.setData({
                   classList:res.data.data,
-                  className: res.data.data[0]
+                  className: _self.data.showSJ ? '外卖运营' : res.data.data[0],
+                  classindex: _self.data.showSJ ? res.data.data.indexOf('外卖运营') : 0
                 }, _self.listProduct)
               }
         }
@@ -125,7 +143,33 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  // onShareAppMessage: function () {
-
-  // }
+  onShareAppMessage: function (ops) {
+    let imgurl,pageUrl,title
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮、、menu
+      console.log(ops.target)
+    }
+    if (this.data.className == '外卖运营') {
+      imgurl = '/images/share2.jpg'
+      pageUrl = '/pages/store/listIndex/index?showSJ=1'
+      title = '外卖【订单提升】解决方案，效果明显，安全可靠，商家满意度高！'
+    }else{
+      imgurl = '/images/share1.jpg'
+      pageUrl = '/pages/store/listIndex/index'
+      title = '【外卖包材】餐盒、餐具、纸巾、餐袋，【工厂直批—全网最低】'
+    } 
+    return {
+      title: title,
+      path: pageUrl,//当前页面 path ，必须是以 / 开头的完整路径
+      imageUrl: imgurl,//转发图标
+      success: function (res) {
+        //成功
+        console.log('success')
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
+  }
 })

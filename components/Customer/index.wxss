@@ -1,0 +1,35 @@
+/* components/Customer/index.wxss */
+@import '../../publiCss/public.wxss';
+button.fixed{
+  width: 86rpx;
+  height: 86rpx;
+  bottom: 160rpx;
+  font-size: 20rpx;
+  right: 60rpx;
+  border: 1px solid #eeeeee;
+  background-color: rgba(255,255,255,1);
+  opacity: 1;
+  color:#333;
+}
+button.fixed::after{
+  border: none;
+}
+button{
+  line-height: 34rpx;
+}
+button.fixed image{
+  width: 44rpx;
+  height: 34rpx;
+}
+/* .img{
+  display: block;
+  width: 450rpx;
+  margin: 0 auto;
+} */
+/* .msg{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+  color: #333;
+  padding: 0 60rpx;
+} */

@@ -1,0 +1,10 @@
+<!--components/Customer/index.wxml-->
+<!-- <van-popup show="{{ show }}" close-on-click-overlay bind:click-overlay="cancal">
+  <image src="../../images/addwechat.jpg" mode='widthFix' class="img"></image>
+  <!-- <view class="msg">长按二维码保存图片，加客服微信，进行实时沟通，满足您的需求！</view> -->
+<!-- </van-popup>  --> 
+<button class="fixed" bindcontact='addweChat' open-type="contact">
+  <image src="../../images/wechatLogo.png"></image>
+  客服
+</button>
+<!-- <button open-type="contact" bindcontact="handleContact"></button> -->

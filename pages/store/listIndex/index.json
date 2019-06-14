@@ -1,7 +1,8 @@
 {
   "component": false,
   "usingComponents": {
-    "van-icon": "../../../vant/icon/index"
+    "van-icon": "../../../vant/icon/index",
+    "customer-service":"../../../components/Customer/index"
   },
   "navigationBarTitleText": "商品列表",
   "navigationBarBackgroundColor": "#F7F7F7",

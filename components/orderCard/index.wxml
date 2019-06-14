@@ -12,7 +12,10 @@
                     <view class="over name">{{item.subProductOrders[0].productTitle}}</view>
                     <view class="price flex">
                       <text>￥{{item.subProductOrders[0].virtualPrice}}</text>
-                       <text style="font-size:20rpx;">{{item.subProductOrders[0].saleProp}} <text style="margin-left:20rpx;font-size:20rpx;"> x {{item.subProductOrders[0].num}}</text></text>
+                       <view style="font-size:20rpx;max-width:70%;color:#999999;">
+                        <view class="over">{{item.subProductOrders[0].saleProp}} </view>
+                        <view style="text-align:right;"> x {{item.subProductOrders[0].num}}</view>
+                       </view>
                     </view>
                 </view>
       </view>

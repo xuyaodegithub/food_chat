@@ -3,14 +3,3 @@
 <input value="{{sendValue}}" bindinput='changeValue'></input>
 <button bindtap='sendThis'>发送</button>
 <button bindtap='goWX'>tiaozhuan</button>
-<editor
-  id="editor"
-  class="ql-container"
-  placeholder="{{placeholder}}"
-  showImgSize
-  showImgToolbar
-  showImgResize
-  bindstatuschange="onStatusChange"
-  read-only="{{readOnly}}"
-  bindready="onEditorReady"
-></editor>

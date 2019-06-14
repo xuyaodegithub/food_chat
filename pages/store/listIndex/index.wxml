@@ -1,7 +1,7 @@
 <!--商品列表-->
 <view class="flex pageTop">
     <scroll-view class="left" scroll-y	>
-          <view wx:for="{{classList}}" wx:key="{{index}}" class="{{className===item ? 'active' : ''}}" bindtap='changeTitle' data-item="{{item}}">{{item}}</view>
+          <view wx:for="{{classList}}" wx:key="{{index}}" class="{{classindex===index ? 'active' : ''}}" bindtap='changeTitle' data-item="{{item}}" data-index="{{index}}">{{item}}</view>
     </scroll-view>
     <scroll-view class="right" scroll-y	bindscrolltolower="getMoveProduct">
         <view wx:for="{{productList}}" wx:key="{{index}}" class="flex" bindtap='goDetail' data-ids="{{item.productId}}">
@@ -19,3 +19,4 @@
     <van-icon name="label-o" size="30px" style="margin-top:8rpx;" info=""></van-icon>
     <view class="red"></view>
 </view> 
+<customer-service></customer-service>  

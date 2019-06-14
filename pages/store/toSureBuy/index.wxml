@@ -26,7 +26,10 @@
               <view class="over name">{{proMess.procuctName}}</view>
               <view class="price flex">
                 <text>￥{{proMess.nomalMess.price}}</text>
-                <text style="font-size:20rpx;">{{proMess.nomalMess.skuKey}} <text style="margin-left:20rpx;font-size:20rpx;"> x {{proMess.num}}</text></text>
+                <view style="font-size:20rpx;max-width:75%;color:#999;">
+                  <view class="over">{{proMess.nomalMess.skuKey}}</view>
+                  <view style="text-align:right;"> x {{proMess.num}}</view>
+                </view>
               </view>
             </view>
     </view>

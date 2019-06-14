@@ -1,7 +1,10 @@
 /* pages/store/detail/index.wxss */
 page{
-  padding: 0 20rpx;
+  /* padding: 0 20rpx; */
   width: auto;
+}
+.paddi{
+  padding: 0 20rpx;
 }
 .title{
   font-size: 36rpx;
@@ -52,24 +55,53 @@ page{
 }
 .fixedP{
   position: fixed;
-  bottom: 20rpx;
+  bottom: 0;
   left: 0;
   /* left: 50%; */
   width: 100%;
+  background-color: #fff;
   /* font-size: 34rpx;
   text-align: center;
   color: #ffffff;
   line-height: 90rpx; */
+  align-items: center;
 }
+.fixedP .left{
+  text-align: center;
+  flex: 1;
+  justify-content: space-around;
+  padding: 0 25rpx;
+ 
+}
+.fixedP .left > view,.fixedP .left > button{
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  color: #333;
+  line-height: 34rpx;
+}
+.fixedP .left view view:last-child{
+  font-size: 26rpx;
+}
+.fixedP .shareBtn{
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  position: relative;
+  }
+  .fixedP .shareBtn view{
+  font-size: 26rpx;
+  }
+  .fixedP .shareBtn::after{
+    border: none;
+  }
 .buybtn{
   font-size: 34rpx;
   text-align: center;
   color: #ffffff;
   line-height: 100rpx;
-  width: 95%;
-  margin:0 auto;
+  width: 65%;
   background-color: #3277f0;
-  border-radius: 10rpx
 }
 .sloat{
 height: 30rpx;
@@ -129,6 +161,7 @@ visibility: hidden
   text-align: center;
   margin-right: 30rpx;
   margin-bottom: 20rpx;
+  border-radius: 10rpx;
 }
 .nallmess .flex .active{
   color:#F23F8A;

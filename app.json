@@ -71,5 +71,10 @@
   "sitemapLocation": "sitemap.json",
   "navigateToMiniProgramAppIdList": [
     "wxdb0507db667d1521"
-  ]
+  ],
+  "permission":{
+    "scope.userLocation":{
+      "desc": "请求获取您的位置信息!"
+    }
+  }
 }

@@ -1,7 +1,7 @@
 <!--商品详情-->
-<swipers banner="{{oneItem.titleImages}}"></swipers>
-<view>
-    <view class="title over">{{oneItem.title}}</view>
+<view class="paddi">
+    <swipers banner="{{oneItem.titleImages}}"></swipers>
+    <view class="title">{{oneItem.title}}</view>
     <view class="price">￥{{oneItem.priceDescription}}</view>
     <view class="flex fulltag">
       <!-- <text>{{oneItem.FreeShipping ? '包邮' : '不包邮'}}</text> -->
@@ -10,11 +10,21 @@
       <!-- <text>{{oneItem.place}}</text> -->
       <text>杭州</text>
     </view> 
-     <view class="detailImg">
-        <image wx:for="{{oneItem.bodyImages}}" mode="widthFix" src="{{item}}" wx:key="{{index}}"></image>
-     </view>
 </view>
-<view class="fixedP">
+<view class="detailImg">
+  <image wx:for="{{oneItem.bodyImages}}" mode="widthFix" src="{{item}}" wx:key="{{index}}"></image>
+</view>
+<view class="fixedP flex">
+  <view class="flex left">
+    <view class="flex" bindtap='goindex'>
+      <van-icon name="wap-home" size="42rpx"/>
+      <view>商城</view>
+    </view>
+    <button open-type="share" class="shareBtn flex">
+      <van-icon name="share" size="42rpx"/>
+      <view>分享</view>
+    </button>
+  </view>
   <view class="buybtn" bindtap='goBuy'>立即购买</view>
 </view>
 <!-- 购买弹框 -->
@@ -22,7 +32,7 @@
 <view class="sloat"> </view>
     <view class="flex top"> 
         <van-icon name="cross" class="posi" bindtap='closeP'></van-icon>
-          <image src="{{oneItem.bodyImages[0]}}" wx:if="{{!nomalMess}}"></image>
+          <image src="{{oneItem.titleImages[0]}}" wx:if="{{!nomalMess || !nomalMess.image }}"></image>
           <image src="{{nomalMess.image}}" bindtap='previewImage' wx:else></image>
           <view>
             <view class="price2" wx:if="{{!nomalMess}}">￥{{oneItem.priceDescription}}</view>

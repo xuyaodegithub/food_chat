@@ -48,7 +48,8 @@
   justify-content: space-between
 }
 .pro-mess .price{
-  justify-content: space-between
+  justify-content: space-between;
+  align-items: center;
 }
 .pro-mess .price text{
   font-size: 36rpx;
