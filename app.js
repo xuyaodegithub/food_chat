@@ -1,4 +1,10 @@
 //app.js
+// {
+//   "pagePath": "pages/store/listIndex/index",
+//     "text": "商店",
+//       "iconPath": "images/store.png",
+//         "selectedIconPath": "images/stores.png"
+// }
 var config = require('./config.js');
 App({
   baseUrl: "https://qa.puhuoji.com/foodData",
@@ -46,6 +52,7 @@ App({
               }
             }
           })
+        }else{
         }
       }
     })

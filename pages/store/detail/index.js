@@ -115,6 +115,7 @@ Page({
     this.setData({
       nomalList: arr
     })
+    console.log(arr, this.data.namalDetial)
   },
   chengnum(e){
     let type = e.currentTarget.dataset.type
